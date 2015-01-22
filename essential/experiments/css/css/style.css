@@ -1,0 +1,49 @@
+﻿/* with a width, an auto margin will center the content
+   reference: http://www.w3.org/wiki/The_CSS_layout_model_-_boxes_borders_margins_padding#auto_margins
+    */
+body {
+    width: 960px;
+    margin: auto;
+}
+/*
+#main-content {
+    width: 960px;
+    margin: 0 auto;
+}
+    */
+
+.border-only {
+    border: 20px dashed black;
+    background-color: salmon;
+}
+
+.margin-only {
+    margin: 0 10px 0 10px;
+    background-color: darkgrey;    
+    text-align: center;
+    display: table;
+    /*reference: http://stackoverflow.com/questions/12694941/word-wrap-css-property-not-affecting-a-table-cell*/
+    table-layout: fixed;
+}
+
+#text-margin-only {
+    display: table-cell;
+    vertical-align: middle;
+    word-wrap: break-word;
+}
+
+.border-padding {    
+    border: 20px dashed black;
+    padding: 20px;
+    background-color: burlywood;
+}
+
+.float-left-box {
+    float: left;
+    width: 240px;
+    height: 240px;
+}
+
+.clear {
+    clear: both;
+}
