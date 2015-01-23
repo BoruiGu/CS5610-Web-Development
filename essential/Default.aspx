@@ -52,6 +52,15 @@
     {
         text-align: justify;
     }
+
+    #profile_picture {
+        float: left;
+        margin-right: 20px;
+    }
+
+    .clear {
+        clear: both;
+    }
 </style>
 
 <style type="text/css" media="screen">
@@ -92,6 +101,16 @@
 </ul>
 
 <hr />
+
+<div>
+    <div id="profile_picture">
+        <img src="images/photos/profile.jpg" />
+    </div>
+    <div id="about_me">
+        <p>Hi! I'm Borui Gu, a student at Northeastern University. I'm pursuing my Master's degree in Computer Science. </p>
+    </div>
+    <div class="clear"></div>
+</div>
 
 <p>
     <b>This demo page shows the navigation links that should appear

@@ -1,13 +1,13 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Margin, Border and Padding</title>
+    <title>Week1 - Margin, Border and Padding</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 <body>
-    <article id="main-content">
+    <article class="main-content">
         <header>
-            <h1>Margin, Border and Padding</h1>
+            <h1>Week1 - Margin, Border and Padding</h1>
         </header>
         <section>
             <div class="border-only float-left-box">width: 240px<br />height: 240px<br />border-width: 20px<br />whole div: 280px x 280px</div>
@@ -16,12 +16,52 @@
                 <p id="text-margin-only">10px left and right margin<br />use css table for vertical centering and-word-wrap-for-a-very-very-long-word</p>
             </div>
             <div class="border-padding float-left-box">width: 240px<br />height: 240px<br />border-width: 20px<br />padding: 20px<br />whole div: 320px x 320px</div>
-        </section>
-        <div class="clear"></div>
+            <div class="clear"></div>
+            <div>
+                <h2>Code Snippet</h2>
+                <p>Left Box:</p>
+                <pre>
+ .border-only {
+     border: 20px dashed black;
+     background-color: salmon;
+ }
+                </pre>
+                <p>Middle Box:</p>
+                <pre>
+.margin-only {
+    margin: 0 10px 0 10px;
+    background-color: darkgrey;    
+    text-align: center;
+    display: table;
+    table-layout: fixed;
+}
+#text-margin-only {
+    display: table-cell;
+    vertical-align: middle;
+    word-wrap: break-word;
+}
+                </pre>
+                <p>Right Box:</p>
+                <pre>
+.border-padding {    
+    border: 20px dashed black;
+    padding: 20px;
+    background-color: burlywood;
+}
+                </pre>
+            </div>
+        </section>        
         <footer>
-            Source Files 
-            <a href="00-box.html">html</a>
-            <a href="css/style.css">css</a>
+            <h2>Source Files </h2>
+            <a target="_blank" href="../../fileview/Default.aspx?~/experiments/css/00-box.html">html</a>
+            <a target="_blank" href="../../fileview/Default.aspx?~/experiments/css/css/style.css">css</a>
+            <div class="reference">
+                <h2>References</h2>
+                <a target="_blank" href="http://www.w3.org/wiki/The_CSS_layout_model_-_boxes_borders_margins_padding#auto_margins">The CSS layout model - boxes borders margins padding</a><br />
+                <a target="_blank" href="http://stackoverflow.com/questions/12694941/word-wrap-css-property-not-affecting-a-table-cell">Word-wrap CSS property not affecting a table cell</a><br />
+                <a target="_blank" href="http://www.vanseodesign.com/css/vertical-centering/">6 Methods For Vertical Centering With CSS</a><br />
+                <a target="_blank" href="http://css-tricks.com/all-about-floats/">All About Floats</a><br />
+            </div>
         </footer>
     </article>
 </body>

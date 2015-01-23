@@ -1,16 +1,13 @@
-﻿/* with a width, an auto margin will center the content
+﻿body {
+}
+
+/* with a width, an auto margin will center the content
    reference: http://www.w3.org/wiki/The_CSS_layout_model_-_boxes_borders_margins_padding#auto_margins
     */
-body {
-    width: 960px;
-    margin: auto;
-}
-/*
-#main-content {
+.main-content {
     width: 960px;
     margin: 0 auto;
 }
-    */
 
 .border-only {
     border: 20px dashed black;
@@ -46,4 +43,12 @@ body {
 
 .clear {
     clear: both;
+}
+
+pre {
+    background-color: lightgray;
+}
+
+h2 {
+    font-size: large;
 }

@@ -1,2 +1,2 @@
-../story/index.htm?../experiments/html/story.txt   html
 ../story/index.htm?../experiments/css/story.txt    css
+../story/index.htm?../experiments/html/story.txt   html
