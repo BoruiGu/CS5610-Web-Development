@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Week1 - Float</title>
+    <link rel="stylesheet" href="css/float.css" />
+</head>
+<body>
+    <div class="main-content">
+        <h1>Week1 - Float</h1>
+        <img class="left" src="../../images/jfitz_cards/c1.gif" />
+        <p>
+            <b>This paragraph has an image floated to the left. Margin-right of 10px and margin-top of 5px are added to the image to create space between text and image.</b>
+
+            The standard Lorem Ipsum passage, used since the 1500s
+
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+            Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC            
+        </p>
+        <img class="right-clear" src="../../images/jfitz_cards/c2.gif" />
+        <img class="right-clear" src="../../images/jfitz_cards/c3.gif" />
+        <p>
+            <b>This paragraph has two images floated to the right and placed vertically. CSS clear attribute is used to place images one below another, as opposed to one aside another</b>
+
+            The standard Lorem Ipsum passage, used since the 1500s
+
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+            Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
+
+            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"            
+        </p>
+        <figure>
+            <img alt="c1 dot gif" src="../../images/jfitz_cards/c1.gif" />
+            <figcaption>jfitz_cards - c1</figcaption>
+        </figure>
+        <p>
+            <b>This paragraph has an image and its description wrapped in &lt;figure&gt; tag</b>
+
+            The standard Lorem Ipsum passage, used since the 1500s
+
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+            Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
+
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit
+        </p>
+        <h2>Code Snippet</h2>
+        <p>Paragraph 1:</p>
+        <pre>
+.left {
+    float:left;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+</pre>
+        <p>Paragraph 2:</p>
+        <pre>
+.right-clear {
+    float: right;
+    clear: right;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+</pre>
+        <p>Paragraph 3:</p>
+        <pre>
+&lt;figure&gt;
+    &lt;img alt=&quot;c1 dot gif&quot; src=&quot;../../images/jfitz_cards/c1.gif&quot; /&gt;
+    &lt;figcaption&gt;jfitz_cards - c1&lt;/figcaption&gt;
+&lt;/figure&gt;
+figure {
+    float: left;
+    clear: left;
+    margin: 5px 10px 0 0;
+    width: 71px;
+}
+figcaption {
+    font-size: 10px;
+    font-weight: lighter;
+    color: #666;
+}
+</pre>
+        <h2>Source Files </h2>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/css/01-float.html">html</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/css/css/float.css">css</a>
+        <h2>References</h2>
+        <a target="_blank" href="http://www.nytimes.com/2015/01/24/us/as-its-economy-grows-charleston-is-torn-over-its-architectural-future.html?hp&action=click&pgtype=Homepage&module=second-column-region&region=top-news&WT.nav=top-news#">New York Times</a><br />
+        <a target="_blank" href="http://www.tizag.com/cssT/float.php">CSS Tutorial - Float</a>
+           </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+﻿body {
+}
+
+.left {
+    float:left;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.right {
+    float: right;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.right-clear {
+    float: right;
+    clear: right;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.main-content {
+    width: 960px;
+    margin: auto;
+}
+
+.clear {
+    clear: both;
+}
+
+figure {
+    float: left;
+    clear: left;
+    margin: 5px 10px 0 0;
+    width: 71px;
+}
+
+figcaption {
+    font-size: 10px;
+    font-weight: lighter;
+    color: #666;
+}
+
+pre {
+    background-color: lightgray;
+}
+
+h2 {
+    font-size: large;
+}
