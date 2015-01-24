@@ -1,0 +1,90 @@
+﻿body {
+}
+
+/*phone*/
+@media screen and (max-width: 1024px) {
+    .main-content nav {
+        display: none;
+    }
+
+    .main-content section {
+        display: table;
+    }
+    /*reference: http://tanalin.com/en/articles/css-block-order/ */
+    .main-content section #most-important {
+        display: table-header-group;
+    }
+
+    .main-content section #less-important {
+        display: table-row-group;
+    }
+
+    .main-content section #relative-links {
+        display: table-footer-group;
+    }
+}
+
+/*desktop*/
+@media screen and (min-width: 1024px) {
+    .main-content {
+        width: 960px;
+        margin: auto;
+    }
+
+    nav .col-2 {
+        border-left-color: grey;
+        border-left-style: solid;
+        border-left-width: 2px;
+        text-align: center;
+    }
+
+    .nav-last {
+        border-right-color: grey;
+        border-right-style: solid;
+        border-right-width: 2px;
+    }
+
+    .row {
+        display: block;
+        width: 960px;
+    }    
+
+    .col-2 {
+        float: left;
+        width: 157.66px;
+    }
+
+    .col-3 {
+        float: left;
+        width: 238px;
+    }
+
+    .col-6 {
+        float: left;
+        width: 484px;
+    }
+
+    .row-150 {
+        height: 150px;
+        border: 2px solid lightgrey;
+    }
+
+    .row-450 {
+        height: 458px;
+        border: 2px solid lightgrey;
+    }
+
+    .row-225 {
+        height: 227px;
+        border-top: 2px solid lightgrey;
+        border-bottom: 2px solid lightgrey;
+    }
+}
+
+pre {
+    background-color: lightgray;
+}
+
+h2 {
+    font-size: large;
+}

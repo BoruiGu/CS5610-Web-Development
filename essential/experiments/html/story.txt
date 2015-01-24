@@ -1,1 +1,2 @@
-story.txt      The story file for this story
+01-interactive.html Interactive
+story.txt           The story file for this story
