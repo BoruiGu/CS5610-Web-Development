@@ -1,4 +1,5 @@
-00-box.html    Box Model
-01-float.html  Float
-03-layout.html Layout
-story.txt      The story file for this story
+00-box.html            Box Model
+01-float.html          Float
+02-layout.html         Layout
+03-transition.html     Transition         
+story.txt              The story file for this story

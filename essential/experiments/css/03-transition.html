@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Week1 - Transition</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/transition.css" />
+</head>
+<body>
+    <div class="main-content">
+        <h1>Week1 - Transition</h1>
+        <p>
+            In this experiment, the image below will zoom in when mouse hovers on it.
+            CSS transition & transform properties are used to achieve this effect.
+        </p>
+
+        <img src="../../images/jfitz_cards/c1.gif" id="A" alt="Card A" />
+
+        <h2>Code Snippet</h2>
+        <pre>
+img {
+    -webkit-transition: all 1s ease 0.2s;  
+    -moz-transition: all 1s ease 0.2s;  
+    -o-transition: all 1s ease 0.2s;  
+    transition: all 1s ease 0.2s;  
+}
+img:hover {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
+</pre>
+        <h2>Source Files </h2>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/css/03-transition.html">html</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/css/css/transition.css">css</a>
+        <h2>References</h2>
+        <a target="_blank" href="http://css3.bradshawenterprises.com/">CSS Transitions, Transforms and Animation Tutorial</a><br />
+    </div>
+</body>
+</html>

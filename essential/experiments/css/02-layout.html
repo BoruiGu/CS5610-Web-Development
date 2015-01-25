@@ -74,37 +74,41 @@
         The space below is divided into three columns. (col-3, col-6, and col-3)
         The middle column shows most important contents. The left column shows less important contents. The right column contains links to relative sites.</p>
         <pre>
-.col-3 {
-    float: left;
-    width: 238px;
-}
-
-.row-150 {
-    height: 150px;
-    border: 2px solid lightgrey;
+@media screen and (min-width: 1024px) {
+    .col-3 {
+        float: left;
+        width: 238px;
+    }
+    
+    .row-150 {
+        height: 150px;
+        border: 2px solid lightgrey;
+    }
 }
 </pre>
         <h3>For phone:</h3>
         <p>The menu will now be shown. Contents will be placed vertically, in the order of most important contents - less important contents - relative links.</p>
         <pre>
-.main-content nav {
-    display: none;
-}
-.main-content section {
-    display: table;
-}
-.main-content section #most-important {
-    display: table-header-group;
-}
-.main-content section #less-important {
-    display: table-row-group;
-}
-.main-content section #relative-links {
-    display: table-footer-group;
+@media screen and (max-width: 1024px) {
+    .main-content nav {
+        display: none;
+    }
+    .main-content section {
+        display: table;
+    }
+    .main-content section #most-important {
+        display: table-header-group;
+    }
+    .main-content section #less-important {
+        display: table-row-group;
+    }
+    .main-content section #relative-links {
+        display: table-footer-group;
+    }
 }
 </pre>
         <h2>Source Files </h2>
-        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/css/03-layout.html">html</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/css/02-layout.html">html</a>
         <a target="_blank" href="../../fileview/Default.aspx?~/experiments/css/css/layout.css">css</a>
         <h2>References</h2>
         <a target="_blank" href="http://tanalin.com/en/articles/css-block-order/">Vertical reordering of blocks with CSS</a><br />

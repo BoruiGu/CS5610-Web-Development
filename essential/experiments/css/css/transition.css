@@ -1,0 +1,16 @@
+﻿body {
+}
+
+img {
+    -webkit-transition: all 1s ease 0.2s;  
+    -moz-transition: all 1s ease 0.2s;  
+    -o-transition: all 1s ease 0.2s;  
+    transition: all 1s ease 0.2s;  
+}
+
+img:hover {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
