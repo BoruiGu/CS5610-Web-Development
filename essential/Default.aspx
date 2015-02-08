@@ -98,6 +98,7 @@
     <li><a href="images/autoimage.aspx" target="_blank">Images</a></li>
     <li><a href="blog/" target="_blank">Blog</a></li>
     <li><a href="story/index.htm?../experiments/story.txt" target="_blank">Experiments</a></li>
+    <li><a href="https://github.com/BoruiGu/CS5610-borui" target="_blank">Git</a></li>
 </ul>
 
 <hr />

@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Week3 - Array of Objects</title>
+    <!--<link rel="stylesheet" href="css/style.css" />-->
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/04.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Week3 - Array of Objects</h1>
+        
+        <p class="lead">In this experiment an array of objects is used to fill in contents of a table.</p>
+
+        <p class="lead">This is how it looks like before contents are filled in.</p>
+        <div class="row">            
+            <div class="col-md-6">
+                <table class="table table-stripped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>a</th>
+                            <th>b</th>
+                            <th>c</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="col-md-3"></div>
+            <div class="col-md-3"></div>
+        </div>
+       
+        <p class="lead">Create a table row for each object in the array. Append table rows to table body.</p>
+        <div class="row">            
+            <div class="col-md-6">
+                <table id="table" class="table table-stripped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>a</th>
+                            <th>b</th>
+                            <th>c</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="col-md-3"></div>
+            <div class="col-md-3"></div>
+        </div>
+        
+        <code>
+            <pre>
+var content = [
+    { c1: &quot;I&quot;, c2: &quot;1&quot;, c3: &quot;2&quot;, c4: &quot;3&quot; },
+    { c1: &quot;II&quot;, c2: &quot;4&quot;, c3: &quot;5&quot;, c4: &quot;6&quot; },
+    { c1: &quot;III&quot;, c2: &quot;7&quot;, c3: &quot;8&quot;, c4: &quot;9&quot; },
+];
+var tbody = $(&quot;#table tbody&quot;);
+for (var i in content) {
+    var r = content[i];
+    var tr = $(&quot;&lt;tr&gt;&quot;);
+    var td = $(&quot;&lt;td&gt;&quot;);
+    td.append(r.c1);
+    td.append(&quot;&lt;/td&gt;&quot;);
+    tr.append(td);
+    td = $(&quot;&lt;td&gt;&quot;);
+    td.append(r.c2);
+    td.append(&quot;&lt;/td&gt;&quot;);
+    tr.append(td);
+    td = $(&quot;&lt;td&gt;&quot;);
+    td.append(r.c3);
+    td.append(&quot;&lt;/td&gt;&quot;);
+    tr.append(td);
+    td = $(&quot;&lt;td&gt;&quot;);
+    td.append(r.c4);
+    td.append(&quot;&lt;/td&gt;&quot;);
+    tr.append(td);
+    tbody.append(tr);
+}
+</pre>
+        </code>
+
+        <h2>Source Files </h2>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/jQuery/04-array-object.html">html</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/jQuery/js/04.js">js</a>        
+    </div>
+</body>
+</html>

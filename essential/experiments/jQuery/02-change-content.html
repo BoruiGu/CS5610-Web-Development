@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/02.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1></h1>
+        <p>This experiment uses jQuery to change content. Title and h1 heading of this page is empty in html source code, and is changed to correct content using jQuery.</p>
+        <code>
+            <pre>
+$(&quot;title, h1&quot;).html(&quot;Week3 - Change Content&quot;);
+</pre>
+        </code>
+
+        <p></p>
+
+        <button id="btnP1">
+            <p class="btnTextShow">Click me to show paragraph 1</p>
+            <p class="btnTextHide">Click me to hide paragraph 1</p>
+        </button>
+
+        <button id="btnP2">
+            <p class="btnTextShow">Click me to show paragraph 2</p>
+            <p class="btnTextHide">Click me to hide paragraph 2</p>
+        </button>
+
+        <p id="p1"><b>Paragraph 1</b></p>
+        <p id="p2"><b>Paragraph 2</b></p>
+
+        <p>The two buttons above control show / hide of the two paragraphs below them. Also text in the buttons will change accordingly.</p>
+        <p>HTML source: </p>
+        <code>
+            <pre>
+&lt;button id=&quot;btnP1&quot;&gt;
+    &lt;p class=&quot;btnTextShow&quot;&gt;Click me to show paragraph 1&lt;/p&gt;
+    &lt;p class=&quot;btnTextHide&quot;&gt;Click me to hide paragraph 1&lt;/p&gt;
+&lt;/button&gt;
+&lt;button id=&quot;btnP2&quot;&gt;
+    &lt;p class=&quot;btnTextShow&quot;&gt;Click me to show paragraph 2&lt;/p&gt;
+    &lt;p class=&quot;btnTextHide&quot;&gt;Click me to hide paragraph 2&lt;/p&gt;
+&lt;/button&gt;
+&lt;p id=&quot;p1&quot;&gt;&lt;b&gt;Paragraph 1&lt;/b&gt;&lt;/p&gt;
+&lt;p id=&quot;p2&quot;&gt;&lt;b&gt;Paragraph 2&lt;/b&gt;&lt;/p&gt;
+</pre>
+        </code>
+        <p>jQuery source: </p>
+        <code>
+            <pre>
+var p1 = $(&quot;#p1&quot;);
+var p2 = $(&quot;#p2&quot;);
+p1.hide();    
+p2.hide();
+$(&quot;.btnTextHide&quot;).hide();
+function btnControl(btn, p) {
+    var btnTextShow = btn.find(&quot;.btnTextShow&quot;);
+    var btnTextHide = btn.find(&quot;.btnTextHide&quot;);
+    btn.toggle(
+    function () {
+        p.show();
+        btnTextShow.hide();
+        btnTextHide.show();
+    },
+    function () {
+        p.hide();
+        btnTextShow.show();
+        btnTextHide.hide();
+    });
+}
+btnControl($(&quot;#btnP1&quot;), p1);
+btnControl($(&quot;#btnP2&quot;), p2);
+</pre>
+        </code>
+
+        <p>Note that since control functions of these two buttons are similar, a generalized function is created. A button and the paragraph it controls are passed to this generalized function.</p>
+
+        <p>Also, <i>prepand()</i> and <i>append()</i> are used to add content to paragraph.</p>
+        <code>
+            <pre>
+$(&quot;[id^=&apos;p&apos;]&quot;).append(&quot; This is appended to the paragraph.&quot;);
+$(&quot;[id^=&apos;p&apos;]&quot;).prepend(&quot; This is prepended to the paragraph.&quot;);
+</pre>
+        </code>
+
+        <h2>Source Files </h2>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/jQuery/02-change-content.html">html</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/jQuery/js/02.js">js</a>
+        <h2>Reference</h2>
+        <a target="_blank" href="http://api.jquery.com/toggle-event/">jQuery API Documentation</a>
+    </div>
+</body>
+</html>

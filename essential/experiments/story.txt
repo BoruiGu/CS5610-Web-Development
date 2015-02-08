@@ -1,3 +1,4 @@
 ../story/index.htm?../experiments/css/story.txt         css
 ../story/index.htm?../experiments/html/story.txt        html
 ../story/index.htm?../experiments/bootstrap/story.txt   bootstrap
+../story/index.htm?../experiments/jQuery/story.txt      jQuery

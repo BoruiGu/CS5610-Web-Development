@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Week3 - Selector</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/01.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Week3 - Selector</h1>
+        <p class="description-1">This experiment focuses on selecting elements in the DOM and changing their style.</p>        
+        <p class="description-2">Select all elements with a class name containing "description" and change font-style to "italic"</p>
+        <code>
+            <pre>
+$(&quot;[class*=&apos;description&apos;]&quot;).css(&quot;font-style&quot;, &quot;italic&quot;);
+</pre>
+        </code>
+        <p class="uppercase">all texts in class "uppercase" would be displayed in uppercase.</p>
+        <code>
+            <pre>
+$(&quot;p.uppercase&quot;).css({
+    &quot;text-transform&quot;: &quot;uppercase&quot;,
+    &quot;color&quot;: &quot;firebrick&quot;
+});
+</pre>
+        </code>
+        <p id="bgColor">select a paragraph by its id and change its style.</p>
+        <code>
+            <pre>
+$(&quot;p#bgColor&quot;).css(&quot;background-color&quot;, &quot;grey&quot;);
+</pre>
+        </code>
+        <p>Select all odd &lt;p&gt; tags and change background color.</p>
+        <code>
+            <pre>
+$(&quot;p:odd&quot;).css({
+    &quot;color&quot;: &quot;white&quot;,
+    &quot;background-color&quot;: &quot;black&quot;
+});
+</pre>
+        </code>
+        <h2>Source Files </h2>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/jQuery/01-selector.html">html</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/jQuery/js/01.js">js</a>
+        <h2>Reference</h2>
+        <a target="_blank" href="http://www.w3schools.com/jquery/jquery_ref_selectors.asp">w3schools</a>
+    </div>
+</body>
+</html>

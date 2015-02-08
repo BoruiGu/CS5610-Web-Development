@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Week3 - Array</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/03.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Week3 - Array</h1>
+        
+        <p>In this experiment array is used to fill in contents of a list.</p>
+
+        <p>This is how it looks like before contents are filled in.</p>
+        <ul>
+            <li>placeholder 1</li>
+            <li>placeholder 2</li>
+            <li>placeholder 3</li>
+        </ul>       
+
+        <p><b>Method1</b>: Iterate through &lt;li&gt; tags in the list and replace content with content we want.</p>
+        <ul id="worklist">
+            <li>placeholder 1</li>
+            <li>placeholder 2</li>
+            <li>placeholder 3</li>
+        </ul>
+        <code>
+            <pre>
+var list = $(&quot;ul#worklist&quot;);
+var items = [&quot;Meet&quot;, &quot;Your&quot;, &quot;Makers&quot;];
+list.find(&quot;li&quot;).each(function (index) {
+    console.log($(this).text());
+    $(this).html(items[index]);
+})
+</pre>
+        </code>
+
+        <p><b>Method2</b>: First clear the list, then iterate through items in the array, create &lt;li&gt; tags, and append to list.</p>
+        <ul id="worklist1">
+            <li>placeholder 1</li>
+            <li>placeholder 2</li>
+            <li>placeholder 3</li>
+        </ul>
+        <code>
+            <pre>
+list = $(&quot;ul#worklist1&quot;);
+list.empty();
+for (var i in items) {
+    var li = $(&quot;&lt;li&gt;&quot; + items[i] + &quot;&lt;/li&gt;&quot;);
+    list.append(li);
+}
+</pre>
+        </code>
+        <h2>Source Files </h2>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/jQuery/03-array.html">html</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/jQuery/js/03.js">js</a>
+        <h2>Reference</h2>
+        <a target="_blank" href="http://api.jquery.com/each/">jQuery API Documentation</a>
+    </div>
+</body>
+</html>
