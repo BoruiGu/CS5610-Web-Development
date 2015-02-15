@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Week4 - AJAX</title>
+    <link rel="stylesheet" href="../jQuery/css/style.css" />
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">    
+    <script src="js/01.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Week4 - AJAX</h1>
+        <p>This experiment uses AJAX to retrieve data from My API Films, and renders the result.</p>
+        <label for="title">Title:</label>
+        <input id="title" value="final fantasy"/>
+        <button id="get">Get</button>
+        <div class="row">
+            <div class="col-sm-8">
+                <table class="table table-striped">
+                    <thead>
+                    </thead>
+                    <tbody class="parent">
+                        <tr class="template">
+                            <td class="col-sm-4">
+                                <img class="poster" src="http://ia.media-imdb.com/images/M/MV5BMTg0MDQ1OTQ3MF5BMl5BanBnXkFtZTcwODE2MzE2MQ@@._V1_SY317_CR51,0,214,317_AL_.jpg">
+                            </td>
+                            <td class="col-sm-8">
+                                <div>
+                                    <b>Title</b>: <span class="title">Final Fantasy</span>
+                                </div>
+                                <div>
+                                    <b>Year</b>: <span class="year">1987</span>   <b>Rating</b>: <span class="rating">8.0</span>
+                                </div>
+                                <div>
+                                    <b>Plot</b>: <span class="plot">In the first out of the famous "Final Fantasy" series, many warriors of different classes must cleanse the land of evil and track down the notorious Garland. On their quest, these warriors run into the elemental fiends, build technology, meet elves, giants and mermaids, help a witch and many other incredible voyages.</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-2"></div>
+        </div>    
+        <h2>Source Files </h2>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/ajax/01-ajax.html">html</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/ajax/js/01.js">js</a>        
+    </div>
+</body>
+</html>

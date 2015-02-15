@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Week4 - Hello</title>
+    <link rel="stylesheet" href="../jQuery/css/style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+    <script src="js/01.js"></script>
+</head>
+<body ng-app="Hello">
+    <div class="container" ng-controller="HelloController">
+        <h1>Week4 - Hello</h1>
+        <p>This is the first experiment for AngularJS.<br />
+        Elements in the sentence below come from three places:<br />"Hello" from ng-controller, "" is binded with the input field, and "!" is written in html.</p>
+        <label for="name">Name:</label>
+        <input id="name" ng-model="Name" placeholder="Enter a name here">
+        <h1>{{hello}} {{Name}}!</h1>
+        <h2>Source Files </h2>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/01-hello.html">html</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/js/01.js">js</a>
+    </div>
+</body>
+</html>

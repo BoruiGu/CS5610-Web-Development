@@ -3,4 +3,6 @@
 03-array.html                  Array
 04-array-object.html           Array of Objects
 05-local-copy.html             Local Copy
+06-local-storage.html          Local Storage
+07-WYSIWYG-editor.html         WYSIWYG Editor
 story.txt                      The story file for this story

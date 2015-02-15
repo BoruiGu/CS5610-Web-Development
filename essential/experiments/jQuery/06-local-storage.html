@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Week4 - Local Storage</title>
+    <script src="js/jquery-1.11.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+    <script src="js/06.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Week4 - Local Storage</h1>
+        <p>This experiment plays with local storage. 
+        We need to store the state somewhere if we want to restore the most recent state when we refresh the page. In this experiment the states are stored in browser's local storage.<br />
+        Click "Add" button will add a new paragraph of text, which is draggable and editable.
+        Click "Save" button will save the current state to browser's local storage. "Load" button loads state from local storage and renders it. "View" shows contents stored, "Clear Local Storage" clears saved contents.</p>        
+        <h2>Source Files </h2>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/jQuery/06-local-storage.html">html</a>        
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/jQuery/js/06.js">js</a>
+        <h2>References </h2>
+        <a target="_blank" href="http://www.smashingmagazine.com/2010/10/11/local-storage-and-how-to-use-it/">Local Storage And How To Use It On Websites</a><br />
+        <a target="_blank" href="https://github.com/jannunzi/CS5610-2015-spring-net4.ccs.neu.edu/blob/master/cs5610/experiments/jQueryUI/007.html">Experiment by Prof. Annunziato</a><br />
+        <br />
+        <button id="add">Add</button>
+        <button id="save">Save</button>
+        <button id="load">Load</button>
+        <button id="view">View</button>
+        <button id="clear">Clear Local Storage</button>
+        <span id="temp"></span>
+    </div>
+</body>
+</html>
