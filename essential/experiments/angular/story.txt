@@ -1,3 +1,4 @@
 01-hello.html                  Hello
 02-array-object.html           Array Object
+03-list-management.html        List Management
 story.txt                      The story file for this story

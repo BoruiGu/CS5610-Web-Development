@@ -14,6 +14,46 @@
         We need to store the state somewhere if we want to restore the most recent state when we refresh the page. In this experiment the states are stored in browser's local storage.<br />
         Click "Add" button will add a new paragraph of text, which is draggable and editable.
         Click "Save" button will save the current state to browser's local storage. "Load" button loads state from local storage and renders it. "View" shows contents stored, "Clear Local Storage" clears saved contents.</p>        
+        <code>
+            <pre>
+function save() {
+    var state = [];
+    var temp = $(&quot;#temp&quot;);
+    var ps = temp.find(&quot;p&quot;);
+    ps.each(function (index, item) {
+        var p = $(item);
+        var html = p.html();
+        var pos = p.position();
+        var stateObj = {
+            html: html,
+            x: pos.left,
+            y: pos.top
+        };
+        state.push(stateObj);
+    });
+    var stateStr = JSON.stringify(state);    
+    localStorage.setItem(&quot;Exp06State&quot;, stateStr);
+}
+function load() {
+    var stateStr = localStorage.getItem(&quot;Exp06State&quot;);
+    if (stateStr == null){
+        alert(&quot;Previous state not found.&quot;);
+        return;
+    }
+    var state = JSON.parse(stateStr);
+    for (var i in state) {
+        var stateObj = state[i];
+        var html = stateObj.html;
+        var x = stateObj.x;
+        var y = stateObj.y;
+        add(html, x, y);
+    }
+    var temp = $(&quot;#temp&quot;);
+    var afterTemp = $(&quot;#after_temp&quot;);
+    temp.insertBefore(afterTemp);
+}
+</pre>
+        </code>
         <h2>Source Files </h2>
         <a target="_blank" href="../../fileview/Default.aspx?~/experiments/jQuery/06-local-storage.html">html</a>        
         <a target="_blank" href="../../fileview/Default.aspx?~/experiments/jQuery/js/06.js">js</a>

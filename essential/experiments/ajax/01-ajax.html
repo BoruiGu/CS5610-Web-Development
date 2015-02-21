@@ -2,7 +2,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Week4 - AJAX</title>
-    <link rel="stylesheet" href="../jQuery/css/style.css" />
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -12,7 +11,9 @@
 <body>
     <div class="container">
         <h1>Week4 - AJAX</h1>
-        <p>This experiment uses AJAX to retrieve data from My API Films, and renders the result.</p>
+        <p>This experiment uses AJAX to retrieve data from My API Films, and renders the result. 
+        Requesting data from a server in a different domain is prohibited by browsers, and JSONP format is used in this experiment to avoid this problem.
+        A template in html file is used to render data. Everytime we render an object, we clone a copy of the template and fill in contents of the object, then add it to page.</p>
         <label for="title">Title:</label>
         <input id="title" value="final fantasy"/>
         <button id="get">Get</button>
@@ -44,6 +45,65 @@
             <div class="col-sm-2"></div>
             <div class="col-sm-2"></div>
         </div>    
+        <code>
+            In html:
+            <pre>
+&lt;tbody class=&quot;parent&quot;&gt;
+    &lt;tr class=&quot;template&quot;&gt;
+        &lt;td class=&quot;col-sm-4&quot;&gt;
+            &lt;img class=&quot;poster&quot; src=&quot;http://ia.media-imdb.com/images/M/MV5BMTg0MDQ1OTQ3MF5BMl5BanBnXkFtZTcwODE2MzE2MQ@@._V1_SY317_CR51,0,214,317_AL_.jpg&quot;&gt;
+        &lt;/td&gt;
+        &lt;td class=&quot;col-sm-8&quot;&gt;
+            &lt;div&gt;
+                &lt;b&gt;Title&lt;/b&gt;: &lt;span class=&quot;title&quot;&gt;Final Fantasy&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;b&gt;Year&lt;/b&gt;: &lt;span class=&quot;year&quot;&gt;1987&lt;/span&gt;   &lt;b&gt;Rating&lt;/b&gt;: &lt;span class=&quot;rating&quot;&gt;8.0&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;b&gt;Plot&lt;/b&gt;: &lt;span class=&quot;plot&quot;&gt;In the first out of the famous &quot;Final Fantasy&quot; series, many warriors of different classes must cleanse the land of evil and track down the notorious Garland. On their quest, these warriors run into the elemental fiends, build technology, meet elves, giants and mermaids, help a witch and many other incredible voyages.&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;
+</pre>
+            In javascript:<br /><br />
+            Retrive data:
+            <pre>
+var parent = $(&quot;.parent&quot;);
+var template = $(&quot;.template&quot;);
+parent.empty();
+$(&quot;#get&quot;).click(function () {
+    var title = $(&quot;#title&quot;).val();        
+    $.ajax({
+        url: &quot;http://www.myapifilms.com/imdb?title=&quot; + title + &quot;&amp;format=JSONP&amp;aka=0&amp;business=0&amp;seasons=0&amp;seasonYear=0&amp;technical=0&amp;filter=N&amp;exactFilter=0&amp;limit=10&amp;lang=en-us&amp;actors=N&amp;biography=0&amp;trailer=0&amp;uniqueName=0&amp;filmography=0&amp;bornDied=0&amp;starSign=0&amp;actorActress=0&amp;actorTrivia=0&amp;movieTrivia=0&amp;awards=0&amp;moviePhotos=N&amp;movieVideos=N&quot;,
+        dataType: &quot;jsonp&quot;,
+        success: function (movies) {
+            render(movies, parent, template);
+        }
+    })
+})
+</pre>
+            Render result:
+            <pre>
+for (var i in movies) {
+    var movie = movies[i];
+    if (!movie.urlPoster) continue;
+    var title = movie.title;
+    var urlPoster = movie.urlPoster;
+    var plot = movie.plot;
+    var rating = movie.rating;
+    var year = movie.year;
+    var item = template.clone();
+    item.find(&quot;.title&quot;).html(title);
+    item.find(&quot;.poster&quot;).attr(&quot;src&quot;, urlPoster);
+    item.find(&quot;.plot&quot;).html(plot);
+    item.find(&quot;.rating&quot;).html(rating);
+    item.find(&quot;.year&quot;).html(year);
+    parent.append(item);
+}
+</pre>
+        </code>
         <h2>Source Files </h2>
         <a target="_blank" href="../../fileview/Default.aspx?~/experiments/ajax/01-ajax.html">html</a>
         <a target="_blank" href="../../fileview/Default.aspx?~/experiments/ajax/js/01.js">js</a>        

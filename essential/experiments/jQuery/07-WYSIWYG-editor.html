@@ -16,6 +16,24 @@
         <button id="italic">Italic</button>
         <button id="underline">Underline</button>
         <p id="editor" contenteditable="true">Try editing this content.</p>
+        <code>
+            In html:
+            <pre>
+&lt;p id=&quot;editor&quot; contenteditable=&quot;true&quot;&gt;Try editing this content.&lt;/p&gt;
+</pre>
+            In javascript:
+            <pre>
+$(&quot;#bold&quot;).click(function () {
+    document.execCommand(&quot;Bold&quot;, false, null);
+});
+$(&quot;#italic&quot;).click(function () {
+    document.execCommand(&quot;Italic&quot;, false, null);
+});
+$(&quot;#underline&quot;).click(function () {
+    document.execCommand(&quot;Underline&quot;, false, null);
+});
+</pre>
+        </code>
         <h2>Source Files </h2>
         <a target="_blank" href="../../fileview/Default.aspx?~/experiments/jQuery/07-WYSIWYG-editor.html">html</a>        
         <a target="_blank" href="../../fileview/Default.aspx?~/experiments/jQuery/js/07.js">js</a>

@@ -18,6 +18,7 @@
 function render(movies, parent, template) {        
     for (var i in movies) {
         var movie = movies[i];
+        if (!movie.urlPoster) continue;
         var title = movie.title;
         var urlPoster = movie.urlPoster;
         var plot = movie.plot;
