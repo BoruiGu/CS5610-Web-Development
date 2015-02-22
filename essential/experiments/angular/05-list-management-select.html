@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Week5 - List Management - Sort</title>
+    <link rel="stylesheet" href="../jQuery/css/style.css" />    
+    <script src="http://code.angularjs.org/1.0.0rc10/angular-1.0.0rc10.js"></script>    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+    <script src="js/05.js"></script>
+</head>
+<body>
+    <div class="container" ng-app="ListManagement" ng-controller="ListManagementCtrl" ng-keydown="onKeyDown($event)" ng-keyup="onKeyUp($event)">
+        <h1>Week5 - List Management - Sort</h1>
+        <p class="lead">
+            This experiment is based on a
+            <a href="04-list-management-sort.html">previous experiment</a>
+            .<br />
+            In this experiment, items can be selected:
+            <ul class="lead">
+                <li>If at least one item is selected, a "Remove Selected" button will appear</li>
+                <li>"Remove Selected" button can remove all selected items at once</li>
+                <li>Click on anywhere within a row will toggle its checkbox</li>
+            </ul>
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th ng-click="sortItem(h)" ng-repeat="h in headers">
+                                {{h.charAt(0).toUpperCase() + h.slice(1)}}
+                                <span ng-show="isAsc($index)" class="glyphicon glyphicon-triangle-top"></span>
+                                <span ng-show="isDesc($index)" class="glyphicon glyphicon-triangle-bottom"></span>
+                            </th>
+                            <th>&nbsp;</th>
+                        </tr>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th><input ng-model="vn.title" class="form-control" /></th>
+                            <th><input ng-model="vn.date" class="form-control" /></th>
+                            <th><input ng-model="vn.rating" class="form-control" /></th>
+                            <th>
+                                <button class="btn btn-success" ng-click="addItem(vn)">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </button>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-click="checkRow($index)" ng-repeat="vn in vns">
+                            <td>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" ng-click="vn.selected = !vn.selected" ng-model="vn.selected" ng-change="itemChecked($index)" />
+                                </label>
+                            </td>
+                            <td>{{vn.title}}</td>
+                            <td>{{vn.date}}</td>
+                            <td>{{vn.rating}}</td>
+                            <td>
+                                <button class="btn btn-danger" ng-click="removeItem(vn)">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3"></div>
+            <div class="col-md-3"></div>
+        </div>
+        <button ng-click="removeSelectedItems()" ng-show="hasSelect()" class="btn btn-danger">Remove Selected</button>
+        <div ng-repeat="vn in vns">
+            {{vn.title}}
+        </div>
+    </div>
+    <div class="container">
+        <code>
+            In html:
+            <pre>             
+&lt;tr ng-click=&quot;checkRow($index)&quot; ng-repeat=&quot;vn in vns&quot;&gt;
+     &lt;td&gt;
+         &lt;label class=&quot;checkbox-inline&quot;&gt;
+             &lt;input type=&quot;checkbox&quot; ng-click=&quot;vn.selected = !vn.selected&quot; ng-model=&quot;vn.selected&quot; ng-change=&quot;itemChecked($index)&quot; /&gt;
+         &lt;/label&gt;
+     &lt;/td&gt;
+</pre>
+            In javascript:
+            <pre>
+$scope.hasSelect = function () {
+    for (var i in vns) {
+        if (vns[i].selected) return true;
+    }
+    return false;
+}
+$scope.checkRow = function (index) {
+    vns[index].selected = !vns[index].selected;
+};
+$scope.removeSelectedItems = function () {
+    for (var i = vns.length - 1; i &gt;= 0; i--) {
+        if (vns[i].selected) $scope.removeItem(vns[i]);
+    }
+}
+</pre>
+        </code>
+        <h2>Source Files </h2>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/05-list-management-select.html">html</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/js/05.js">js</a>
+    </div>
+</body>
+</html>

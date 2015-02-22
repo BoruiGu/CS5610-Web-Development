@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Week5 - List Management - Sort</title>
+    <link rel="stylesheet" href="../jQuery/css/style.css" />    
+    <script src="http://code.angularjs.org/1.0.0rc10/angular-1.0.0rc10.js"></script>    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+    <script src="js/04.js"></script>
+</head>
+<body>
+    <div class="container" ng-app="ListManagement" ng-controller="ListManagementCtrl">
+        <h1>Week5 - List Management - Sort</h1>
+        <p class="lead">
+            This experiment is based on a
+            <a href="03-list-management.html">previous experiment</a>
+            .<br />
+            In this experiment, items in the list will be sorted when a header of the table is clicked:
+            <ul class="lead">
+                <li>Items will be sorted according to contents in that column</li>
+                <li>Items will be sorted in ascending / descending order alternately</li>
+                <li>A top or bottom triangle will be displayed to indicate which column is used to sort the contents</li>
+                <li>Dates need to be parsed and then they can be compared just as normal</li>
+            </ul>
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th ng-click="sortItem(h)" ng-repeat="h in headers">
+                                {{h.charAt(0).toUpperCase() + h.slice(1)}}
+                                <span ng-show="isAsc($index)" class="glyphicon glyphicon-triangle-top"></span>
+                                <span ng-show="isDesc($index)" class="glyphicon glyphicon-triangle-bottom"></span>
+                            </th>
+                            <th>&nbsp;</th>
+                        </tr>
+                        <tr>
+                            <th><input ng-model="vn.title" class="form-control" /></th>
+                            <th><input ng-model="vn.date" class="form-control" /></th>
+                            <th><input ng-model="vn.rating" class="form-control" /></th>
+                            <th>
+                                <button class="btn btn-success" ng-click="addItem(vn)">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </button>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="vn in vns">
+                            <td>{{vn.title}}</td>
+                            <td>{{vn.date}}</td>
+                            <td>{{vn.rating}}</td>
+                            <td>
+                                <button class="btn btn-danger" ng-click="removeItem(vn)">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3"></div>
+            <div class="col-md-3"></div>
+        </div>
+        <div ng-repeat="vn in vns">
+            {{vn.title}}
+        </div>        
+    </div>
+    <div class="container">
+        <code>
+            In html:
+            <pre>             
+&lt;th ng-click=&quot;sortItem(h)&quot; ng-repeat=&quot;h in headers&quot;&gt;
+    {{h.charAt(0).toUpperCase() + h.slice(1)}}
+    &lt;span ng-show=&quot;isAsc($index)&quot; class=&quot;glyphicon glyphicon-triangle-top&quot;&gt;&lt;/span&gt;
+    &lt;span ng-show=&quot;isDesc($index)&quot; class=&quot;glyphicon glyphicon-triangle-bottom&quot;&gt;&lt;/span&gt;
+&lt;/th&gt;
+</pre>
+            In javascript:
+            <pre>
+var headers = [&quot;title&quot;, &quot;date&quot;, &quot;rating&quot;];
+var stateHeaders = [&quot;&quot;, &quot;&quot;, &quot;&quot;];
+$scope.sortItem = function (field) {
+    var index = headers.indexOf(field);
+    var state = stateHeaders[index];
+    stateHeaders = [&quot;&quot;, &quot;&quot;, &quot;&quot;];
+    if (state == &quot;asc&quot;) state = &quot;desc&quot;;
+    else state = &quot;asc&quot;;
+    stateHeaders[index] = state;
+    vns.sort(function (a, b) {
+    if (field == &quot;date&quot;) {
+        var d1 = Date.parse(a[field]);
+        var d2 = Date.parse(b[field]);
+        if (state == &quot;asc&quot;)
+            return d1 &gt; d2;
+        else return d1 &lt; d2;
+    } else {
+        if (state == &quot;asc&quot;)
+            return a[field] &gt; b[field];
+        else return a[field] &lt; b[field];
+    }
+        });            
+};
+$scope.isAsc = function (index) {
+    if (stateHeaders[index] == &quot;asc&quot;) return true;
+    else return false;
+}
+$scope.isDesc = function (index) {
+    return stateHeaders[index] == &quot;desc&quot;;
+}
+</pre>
+        </code>
+        <h2>Source Files </h2>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/04-list-management-sort.html">html</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/js/04.js">js</a>        
+    </div>
+</body>
+</html>

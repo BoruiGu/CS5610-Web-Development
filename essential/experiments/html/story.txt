@@ -1,2 +1,3 @@
-01-interactive.html Interactive
-story.txt           The story file for this story
+01-interactive.html     Interactive
+02-include-file.html    Include File
+story.txt               The story file for this story

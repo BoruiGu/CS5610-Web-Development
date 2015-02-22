@@ -1,4 +1,7 @@
 01-hello.html                  Hello
 02-array-object.html           Array Object
 03-list-management.html        List Management
+04-list-management-sort.html   List Management - Sort
+05-list-management-select.html List Management - Select
+06-routing-hello.html          Routing - Hello
 story.txt                      The story file for this story
