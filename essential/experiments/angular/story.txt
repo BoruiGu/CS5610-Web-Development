@@ -4,7 +4,7 @@
 04-list-management-sort.html   List Management - Sort
 05-list-management-select.html List Management - Select
 06-routing-hello.html          Routing - Hello
-06-login.html                  Login
-06-login-redirect.html         Login - Redirect
+07-login.html                  Login
+08-login-redirect.html         Login - Redirect
 09-login-seperate-files.html   Login - Seperate Files
 story.txt                      The story file for this story
