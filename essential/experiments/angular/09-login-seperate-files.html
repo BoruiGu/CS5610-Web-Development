@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Week6 - Login - Seperate - Files</title>    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>    
+    <script src="https://code.angularjs.org/1.3.13/angular-route.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="js/09/route.js"></script>
+    <script src="js/09/navController.js"></script>
+    <script src="js/09/profileController.js"></script>
+    <script src="js/09/UserService.js"></script>
+    <link href="css/07.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container" ng-app="UserApp">
+        <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="navController">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Project name</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#/home">Home</a></li>
+                        <li><a href="#/about">About</a></li>
+                        <li><a href="#/contact">Contact</a></li>
+                        <li ng-show="currentUser"><a href="#/profile/{{currentUser}}">{{currentUser}}</a></li>
+                    </ul>
+                    <form ng-hide="currentUser" class="navbar-form navbar-right">
+                        <div class="form-group">
+                            <input ng-model="username" type="text" placeholder="Username" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input ng-model="password" type="password" placeholder="Password" class="form-control">
+                        </div>
+                        <button ng-click="login()" type="submit" class="btn btn-success">Sign in</button>
+                    </form>
+                    <ul ng-click="logout()" ng-show="currentUser" class="nav navbar-nav navbar-right">
+                        <li><a href="#/home">Sign Out</a></li>
+                    </ul>
+                </div><!--/.navbar-collapse -->
+            </div>
+        </nav>
+        <div class="container padding" ng-view>
+
+        </div>                
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+﻿<h1>Week6 - Login - Redirect</h1>
+<div>
+    <p>
+        This experiment is based on a <a href="../07-login.html">previous experiment</a>.<br />
+        In this experiment, we will be automatically redirected to the user's profile if login is successful.
+    </p>
+</div>
+
+<pre>
+$scope.currentUser = UserService.getCurrentUser();
+var profilePath = &#39;/profile/&#39; + $scope.currentUser;
+$location.path(profilePath);
+</pre>
+
+<h2>Source Files </h2>
+<a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/08-login-redirect.html">html</a>
+<a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/user/home-redirect.html">html</a>
+<a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/user/profile.html">html</a>
+<a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/js/08.js">js</a>

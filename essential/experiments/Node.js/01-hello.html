@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Week6 - Hello</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.3.13/angular-route.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Week 6 - Hello</h1>
+        <p>
+            This is the first Node.js & Express experiment.<br />
+            Server listens to GET request '/hello' and responses with 'hello world'.<br />
+            Website hosted on OpenShift.
+        </p>
+        <h3>Experiment URL:</h3>
+        <a class="lead" href="http://experiments-borui.rhcloud.com/hello">openshift</a>
+        <br /><br />
+        <pre>
+app.get(&#39;/hello&#39;, function(req, res){
+  res.send(&#39;hello world&#39;);
+});
+</pre>
+        <h3>Source Files </h3>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/Node.js/01-hello.html">html</a>
+    </div>
+</body>
+</html>

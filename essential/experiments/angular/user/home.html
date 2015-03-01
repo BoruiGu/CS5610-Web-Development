@@ -1,0 +1,36 @@
+﻿<h1>Week6 - Login</h1>
+<div>
+    <p>
+        Test sign in and sign out.<br />
+        List of users and their passwords:<br />
+    </p>
+    <ul>
+        <li>Username: admin; Password: admin</li>
+        <li>Username: user; Password: 123</li>
+    </ul>
+    <p>
+        An alert will pop up if username / password combination is incorrect.<br />
+        If login is successful, a link to user's profile page and a link to sign out will be shown on navigation bar.
+    </p>
+</div>
+
+<pre>
+&lt;form ng-hide=&quot;currentUser&quot; class=&quot;navbar-form navbar-right&quot;&gt;
+</pre>
+<pre>
+when(&#39;/profile/:username&#39;, {
+    templateUrl: &#39;user/profile.html&#39;,
+    controller: &#39;profileController&#39;
+}).
+</pre>
+<pre>
+app.controller(&quot;profileController&quot;, function ($scope, $routeParams) {
+    $scope.username = $routeParams.username;
+});
+</pre>
+
+<h2>Source Files </h2>
+<a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/07-login.html">html</a>
+<a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/user/home.html">html</a>
+<a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/user/profile.html">html</a>
+<a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/js/07.js">js</a>

@@ -1,0 +1,44 @@
+﻿<h1>Week6 - Login - Seperate - Files</h1>
+<div>
+    <p>
+        This experiment is based on a <a href="../08-login-redirect.html">previous experiment</a>.<br />
+        In this experiment, javascripts are seperated into 4 files:
+        <ul>
+            <li>route.js: configuration for $routeProvider</li>
+            <li>navController.js: navController</li>
+            <li>profileController.js: profileController</li>
+            <li>UserService.js: UserService</li>
+        </ul>
+        Global variable <code>app</code> is defined in route.js. 
+        In html, link to route.js should be placed before links to other .js files.
+    </p>
+</div>
+    html:
+<pre>
+&lt;script src=&quot;js/09/route.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/09/navController.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/09/profileController.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;js/09/UserService.js&quot;&gt;&lt;/script&gt;
+</pre>
+    route.js:
+<pre>
+var app = angular.module(&quot;UserApp&quot;, [&#39;ngRoute&#39;]);
+app.config([&#39;$routeProvider&#39;,
+...
+}]);
+</pre>
+    navcontroller.js:
+<pre>
+app.controller(&quot;navController&quot;, function ($scope, UserService, $location) {
+...
+});
+</pre>
+
+<h2>Source Files </h2>
+<a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/09-login-seperate-files.html">html</a>
+<a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/user/home-redirect.html">html</a>
+<a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/user/profile.html">html</a>
+<a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/js/js/09/route.js">js</a>
+<a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/js/js/09/navController.js">js</a>
+<a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/js/js/09/profileController.js">js</a>
+<a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/js/js/09/UserService.js">js</a>

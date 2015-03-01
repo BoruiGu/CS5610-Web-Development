@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Week6 - List Management - Select</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.3.13/angular-route.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Week6 - List Management - Sort</h2>
+        <p>
+            This experiment is based on a
+            <a href="http://net4.ccs.neu.edu/home/borui/experiments/angular/05-list-management-select.html">previous experiment</a>
+            .<br />
+            Changes are persistant until the server restart. Scripts are splited into client side and server side.<br />
+            Client side: <br />
+            <ul>
+                <li>Generate request to server upon user's operation</li>
+                <li>Update contents according to server's response</li>
+                <li>Maintain states to support Sort and Select</li>
+            </ul>
+            Server side:<br />
+            <ul>
+                <li>Receive request, manipulte data, and send back result.</li>
+            </ul>
+            <br />
+            Notes:<br />
+            $http sends asynchronous request.
+            To resolve a single response:
+            <pre>
+$http.post(&#39;/api/vns/&#39;, vn).then(updateVns($scope));
+function updateVns($scope) {
+    return function (response) {
+        vns = response.data;
+        ...
+        $scope.vns = vns;
+    }
+}                
+</pre>
+            To resolve multiple results:
+            <pre>
+var promise = [];
+for (var i ...) {
+    ...
+    promise[i] = $http...
+}
+$q.all(promise).then(...);
+</pre>
+            <br />
+        </p>
+        <h3>Experiment URL:</h3>
+        <a class="lead" href="http://experiments-borui.rhcloud.com/03-list-management-select.html">OpenShift</a>
+        <br /><br />
+        <h3>Source Files </h3>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/Node.js/03-list-management-select.html">html</a>
+        <h3>References</h3>
+        <a class="lead" target="_blank" href="http://fdietz.github.io/recipes-with-angular-js/consuming-external-services/deferred-and-promise.html">Deferred and Promise</a><br />
+        <a class="lead" target="_blank" href="http://stackoverflow.com/questions/19664909/issue-with-passing-arguments-to-a-named-callback-function-in-angularjs-javascrip">Pass arguments to callback function</a><br />
+        <br />
+    </div>
+</body>
+</html>
