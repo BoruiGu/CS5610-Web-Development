@@ -1,16 +1,16 @@
-<h3>Week6</h3>
+<h3>Week7</h3>
 
 <p>
     Created a public repository in my git account for sharing source code hosted at OpenShift. Link: 
 	<a target="_blank" href="https://github.com/BoruiGu/CS5610-OpenShift-Exp-Backup">github</a><br />
-	Steps:<br />
-	git remote add --mirror=push backup git@github.com:BoruiGu/CS5610-OpenShift-Exp-Backup.git<br />
+	Steps:<br /><br />
+	git remote add --mirror=push backup git@github.com:BoruiGu/CS5610-OpenShift-Exp-Backup.git<br /><br />
 	In .git/config, add:<br />
-	[remote "all"]
-    url = ssh://54f13f2ae0b8cd4cce000166@experiments-borui.rhcloud.com/~/git/experiments.git/
-	fetch = +refs/heads/*:refs/remotes/origin/*
-	url = git@github.com:BoruiGu/CS5610-OpenShift-Exp-Backup.git
-	mirror = true
+	[remote "all"]<br />
+    url = ssh://54f13f2ae0b8cd4cce000166@experiments-borui.rhcloud.com/~/git/experiments.git/<br />
+	fetch = +refs/heads/*:refs/remotes/origin/*<br />
+	url = git@github.com:BoruiGu/CS5610-OpenShift-Exp-Backup.git<br />
+	mirror = true<br />
 	<br />
 	Then simply use:<br />
 	git push all<br />
@@ -18,7 +18,7 @@
 	<a target="_blank" href="http://www.hostatic.ro/2011/09/29/pushing-to-two-git-remote-origins-from-one-repository/">hostatic</a><br />
 	<a target="_blank" href="http://stackoverflow.com/questions/12657168/can-i-use-my-existing-git-repo-with-openshift">stackoverflow</a><br />
 	<a target="_blank" href="http://experiments.openhood.com/git/2010/04/09/mirror-a-git-repository-for-backup/">openhood</a><br />
-	
+	<br />
 	Performed 6 experiments:<br />
 	Angular: hover, hover-style<br />
 	Bootstrap: fixed-to-bottom<br />
