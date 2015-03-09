@@ -2,4 +2,6 @@
 01-float.html          Float
 02-layout.html         Layout
 03-transition.html     Transition         
+04-border-radius.html  Border-radius
+05-box-shadow.html     Box-shadow
 story.txt              The story file for this story

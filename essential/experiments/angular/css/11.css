@@ -1,0 +1,12 @@
+﻿button {
+    -webkit-transition: all 1s ease 0.1s;  
+    -moz-transition: all 1s ease 0.1s;  
+    -o-transition: all 1s ease 0.1s;  
+    transition: all 1s ease 0.1s;  
+}
+button:hover {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}

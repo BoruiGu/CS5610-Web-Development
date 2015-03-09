@@ -1,6 +1,7 @@
-﻿01-intro.html          Intro
-02-grid.html           Grid System
-03-jumbotron.html      Jumbotron
-04-table.html          Table
-05-button.html         Button
-story.txt              The story file for this story
+﻿01-intro.html                    Intro
+02-grid.html                     Grid System
+03-jumbotron.html                Jumbotron
+04-table.html                    Table
+05-button.html                   Button
+06-fixed-to-bottom.html          Fixed to buttom
+story.txt                        The story file for this story

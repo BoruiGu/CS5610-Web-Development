@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Week7 - Hover</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+    <script src="js/10.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Week7 - Hover</h1>
+        <p class="lead">
+            When mouse hovers over a table row, a button will appear.<br />
+            <code>ng-mouseenter</code> and <code>ng-mouseleave</code> are used.<br />
+            <br />Quote:
+            <blockquote>
+                In short, a <code>mouseover</code> event occurs when you hover over an element from either a parent (or grandparent) or child (or grandchild) element, while a <code>mouseenter</code> event only occurs when you hover over it from either a parent (or grandparent) element. This means that typically <code>mouseover</code> events fire more than <code>mouseenter</code> events
+            </blockquote>
+        </p>      
+        <div class="row" ng-app="hoverApp" ng-controller="hoverController">            
+            <div class="col-md-6">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>#</th>
+                            <th>#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="content in tableContent" ng-mouseenter="hover(content, $event)" ng-mouseleave="hover(content, $event)">
+                            <td>{{content.a}}</td>
+                            <td>{{content.b}}</td>
+                            <td>
+                                <span>
+                                    {{content.c}}
+                                </span>
+                                <span ng-show="content.showBtn" class="pull-right">
+                                    <button class="btn btn-danger">&times;</button>
+                                </span>
+                            </td>
+                        </tr>                        
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6"></div>
+        </div>        
+        <pre>
+&lt;tr ng-repeat=&quot;content in tableContent&quot; ng-mouseenter=&quot;hover(content, $event)&quot; ng-mouseleave=&quot;hover(content, $event)&quot;&gt;
+    &lt;td&gt;{{content.a}}&lt;/td&gt;
+    &lt;td&gt;{{content.b}}&lt;/td&gt;
+    &lt;td&gt;
+        &lt;span&gt;
+            {{content.c}}
+        &lt;/span&gt;
+        &lt;span ng-show=&quot;content.showBtn&quot; class=&quot;pull-right&quot;&gt;
+            &lt;button class=&quot;btn btn-danger&quot;&gt;&amp;times;&lt;/button&gt;
+        &lt;/span&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;    
+</pre>
+        <pre>
+$scope.hover = function (content, event) {
+    console.log(event);
+    if (typeof content.showBtn == &#39;undefined&#39;)
+        content.showBtn = false;
+    content.showBtn = !content.showBtn;
+};
+</pre>
+        <h2>Source Files </h2>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/10-hover.html">html</a>        
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/js/10.js">js</a>
+        <h2>Reference</h2>
+        <a target="_blank" href="http://www.andrewboni.com/2013/08/25/show-and-hide-elements-with-angularjs/">Andrew Boni's blog</a>        
+    </div>
+</body>
+</html>

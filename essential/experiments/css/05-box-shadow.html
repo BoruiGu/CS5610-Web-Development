@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Week7 - Box Shadow</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/box-shadow.css" />
+</head>
+<body>
+    <div class="main-content">
+        <h1>Week7 - Box Shadow</h1>
+        <p>
+            CSS3 border-radius property enables us to add shadows to elements.<br />
+            Property Values: Horizontal Length, Vertical Length, Blur Radius, Spread Radius, Shadow Color, Inset(inner shadow).<br />
+            Elements can have multiple shadows, specified by a comma seperated list. When more than one shadow is specified, the shadows are layered front to back.<br />
+            CSS Generator: <a target="_blank" href="http://www.cssmatic.com/border-radius">CSSmatic</a>
+        </p>
+        <br />
+        <div class="box">
+        </div>
+        <br />
+        <pre>
+&lt;div class=&quot;box&quot;&gt;
+&lt;/div&gt;
+</pre>
+        <pre>
+.box {
+    background-color: brown;
+    width: 360px;
+    height: 360px;
+    border-radius: 50px 50px 50px 50px;
+    -moz-border-radius: 50px 50px 50px 50px;
+    -webkit-border-radius: 50px 50px 50px 50px;
+    border: 0px solid #000000;
+    -webkit-box-shadow: 0px 0px 15px 7px rgba(173, 104, 59, 1), 
+        0px 0px 33px 17px rgba(137, 106, 88, 1);
+    -moz-box-shadow: 0px 0px 15px 7px rgba(173, 104, 59, 1), 
+        0px 0px 33px 17px rgba(137, 106, 88, 1);
+    box-shadow: 0px 0px 15px 7px rgba(173, 104, 59, 1), 
+        0px 0px 33px 17px rgba(137, 106, 88, 1);
+}
+
+</pre>
+        <h2>Source Files </h2>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/css/05-box-shadow.html">html</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/css/css/box-shadow.css">css</a>        
+    </div>
+</body>
+</html>

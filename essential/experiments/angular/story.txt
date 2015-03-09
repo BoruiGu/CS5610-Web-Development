@@ -7,4 +7,6 @@
 07-login.html                  Login
 08-login-redirect.html         Login - Redirect
 09-login-seperate-files.html   Login - Seperate Files
+10-hover.html                  Hover
+11-hover-style.html            Hover - Style
 story.txt                      The story file for this story

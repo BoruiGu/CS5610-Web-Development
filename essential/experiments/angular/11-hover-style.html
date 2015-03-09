@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Week7 - Hover - Style</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+    <script src="js/10.js"></script>
+    <link rel="stylesheet" href="css/11.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Week7 - Hover - Style</h1>
+        <p class="lead">
+            This experiment is based on two previous experiments: <a target="_blank" href="10-hover.html">hover</a> and <a target="_blank" href="../css/03-transition.html">translation</a> <br />
+            Widths of columns in the table are now controlled, as opposed to growing and shrinking dynamically.<br />
+            Button will zoom in when mouse hovers on it.
+        </p>      
+        <div class="row" ng-app="hoverApp" ng-controller="hoverController">            
+            <div class="col-md-6">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="col-md-2">#</th>
+                            <th class="col-md-2">#</th>
+                            <th class="col-md-2">#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="content in tableContent" ng-mouseenter="hover(content, $event)" ng-mouseleave="hover(content, $event)">
+                            <td>{{content.a}}</td>
+                            <td>{{content.b}}</td>
+                            <td>
+                                <span>
+                                    {{content.c}}
+                                </span>
+                                <span ng-show="content.showBtn" class="pull-right">
+                                    <button class="btn btn-danger">&times;</button>
+                                </span>
+                            </td>
+                        </tr>                        
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6"></div>
+        </div>        
+        <pre>
+&lt;thead&gt;
+    &lt;tr&gt;
+        &lt;th class=&quot;col-md-2&quot;&gt;#&lt;/th&gt;
+        &lt;th class=&quot;col-md-2&quot;&gt;#&lt;/th&gt;
+        &lt;th class=&quot;col-md-2&quot;&gt;#&lt;/th&gt;
+    &lt;/tr&gt;
+&lt;/thead&gt;
+</pre>
+        <pre>
+button {
+    -webkit-transition: all 1s ease 0.1s;  
+    -moz-transition: all 1s ease 0.1s;  
+    -o-transition: all 1s ease 0.1s;  
+    transition: all 1s ease 0.1s;  
+}
+button:hover {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
+</pre>
+        <h2>Source Files </h2>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/11-hover-style.html">html</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/js/10.js">js</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/css/11.css">css</a>
+        <h2>Reference</h2>
+        <a target="_blank" href="http://eric.sau.pe/custom-column-widths-in-bootstrap-tables/">Eric Saupe</a>        
+    </div>
+</body>
+</html>

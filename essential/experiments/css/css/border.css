@@ -1,0 +1,9 @@
+﻿.box {
+    background-color: brown;
+    width: 360px;
+    height: 360px;
+    border-radius: 50px 50px 50px 50px;
+    -moz-border-radius: 50px 50px 50px 50px;
+    -webkit-border-radius: 50px 50px 50px 50px;
+    border: 0px solid #000000;
+}

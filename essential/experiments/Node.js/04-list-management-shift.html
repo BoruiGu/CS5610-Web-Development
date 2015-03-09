@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Week7 - List Management - Shift</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.3.13/angular-route.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Week7 - List Management - Shift</h2>
+        <p>
+            This experiment is based on a
+            <a href="03-list-management-select.html">previous experiment</a>
+            .<br />
+            Implemented shift selection: click the first item, press and hold down the Shift key, and then click the last item.<br />
+            Details:<br />
+            Use variable lastChecked to record the "first item"<br />
+            While selecting an item:<br />
+            <ul>
+                <li>if lastChecked were set, we select all items between the item right after lastChecked, and the current selected item.</li>
+                <li>lastChecked := current selected item                                                                              </li>
+            </ul>
+            lastChecked will be cleared in the following circumstances:<br />
+            <ul>
+                <li>unselect an item      </li>
+                <li>drag an item         </li>
+                <li>sort the list        </li>
+                <li>add / remove item(s)  </li>
+                <li>reset the table       </li>
+            </ul>
+            <br />
+            Fixed a bug in previous experiment:<br />
+            In "remove selected", instead of indices, send titles of the selected items in request.<br />
+            Indices may become out of date during multiple requests.
+        </p>
+        <h3>Experiment URL:</h3>
+        <a class="lead" target="_blank" href="http://experiments-borui.rhcloud.com/04-list-management-shift.html">OpenShift</a>
+        <br /><br />
+        <pre>
+$scope.flipSelected = function (event, vn) {
+    /* Do nothing if click on delete button */
+    if (event.target.className == &quot;glyphicon glyphicon-trash&quot;
+        || event.target.className == &quot;btn btn-danger&quot;) return;
+    var index = $scope.idxSelected(vn);
+    if (index == -1) {
+        var currIdx = vns.indexOf(vn);
+        if (lastChecked == -1 || event.shiftKey == false) {
+            selected.push(vn.title);
+            chkbox[currIdx] = true;
+        } else {                
+            for (var i = lastChecked + 1; i &lt;= currIdx; i++) {
+                if (selected.indexOf(vns[i].title) == -1)
+                    selected.push(vns[i].title);
+                chkbox[i] = true;
+            }
+        }
+        lastChecked = currIdx;
+    } else {
+        selected.splice(index, 1);
+        chkbox[vns.indexOf(vn)] = false;
+        lastChecked = -1;
+    }
+};
+</pre>
+        <h3>Source Files </h3>
+		<a target="_blank" href="https://github.com/BoruiGu/CS5610-OpenShift-Exp-Backup/blob/master/src/04-list-management-shift.html">html</a>
+        <a target="_blank" href="https://github.com/BoruiGu/CS5610-OpenShift-Exp-Backup/blob/master/server.js">js</a>
+		<a target="_blank" href="https://github.com/BoruiGu/CS5610-OpenShift-Exp-Backup/blob/master/src/js/04.js">js</a>		
+    </div>
+</body>
+</html>
