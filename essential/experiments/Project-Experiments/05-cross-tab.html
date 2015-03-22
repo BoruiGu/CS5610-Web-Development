@@ -17,8 +17,7 @@
         <p>
             A user may open multiple instances(tabs) of my project. There should be a method that when one instance starts playing music, it tells other instances (if any) that they should not play music at the same time.<br />
             In this experiment, I use localStorage to achieve Cross-tab communication:<br />
-            <code>storage</code> event is fired when setItem() or removeItem() is called, and content of localStorage is updated. By registering to the event, multiple instances can communicate.<br />
-            Note: This experiment may not work properly in IE or on mobile.
+            <code>storage</code> event is fired when setItem() or removeItem() is called, and content of localStorage is updated. By registering to the event, multiple instances can communicate.<br />            
         </p>        
         <pre>
 Open two or more instances of this experiment, and click "Play" on the instances.
@@ -27,20 +26,33 @@ Open two or more instances of this experiment, and click "Play" on the instances
         <button ng-click="pause()" class="btn btn-success">Pause</button>
         <br />
         <pre>
+var appId = String(Math.random());
 var player = new Audio();
 player.loop = true;
 player.src = &quot;https://p.scdn.co/mp3-preview/885021ec9b6ac110238a9463bdcc0dc6d4778cec&quot;;
 $scope.play = function(){
     player.play();
-    localStorage.setItem(&quot;musicPlaying&quot;, Date.now());
+    localStorage.setItem(&quot;playAppId&quot;, appId);
 }
 $scope.pause = function () {
     player.pause();
 }
-window.addEventListener(&#39;storage&#39;, function () {
+window.addEventListener(&#39;storage&#39;, function (e) {
     console.log(&quot;in event listener&quot;);
-    player.pause();
-});
+    console.log(e);
+    // In IE, chances are we will get oldValue from getItem. 
+    // So we get newValue from event object instead.
+    // There's also a bug in IE that the event fires in the
+    // same tab that updated localStorage. We're forced to
+    // use some method to check if this is the tab that
+    // caused the event.
+    //var playAppId = localStorage.getItem(&quot;playAppId&quot;);
+    var playAppId = e.newValue;
+    console.log(playAppId, &#39; &#39;, appId);
+    if (playAppId != appId) {
+        player.pause();
+    }
+}, false);
 </pre>
         <p>Source Files:</p>
         <a target="_blank" href="../../fileview/Default.aspx?~/experiments/Project-Experiments/05-cross-tab.html">html</a>
