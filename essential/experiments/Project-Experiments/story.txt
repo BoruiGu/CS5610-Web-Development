@@ -1,0 +1,6 @@
+﻿01-Spotify-API-Search.html     Spotify API - Search
+02-blur-background.html        Blurred Background
+03-favicon.html                Favicon
+04-scroll-bar.html             Custom Scroll Bar
+05-cross-tab                   Cross-tab Communication
+story.txt                      The story file for this story

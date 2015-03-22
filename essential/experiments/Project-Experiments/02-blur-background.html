@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Week 8 - Blurred Background</title>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="02.css" />
+</head>
+<body>
+    <div class="container">
+        <h2>Week 8 - Blurred Background</h2>
+        <div>
+            <p>In this expriment, I apply CSS blur filter to create a blurred background, which will be used in the homepage of my project.</p>
+            <pre>
+&lt;div class=&quot;content&quot;&gt;
+    &lt;div class=&quot;bg-img&quot;&gt;&lt;/div&gt;
+    &lt;p&gt;Hello World&lt;/p&gt;
+&lt;/div&gt;
+</pre>
+            <p>A seperate <code>div</code> is created for the background image since blur effect will apply to the whole element.</p>
+            <pre>
+.bg-img {    
+    background: url(http://images.all-free-download.com/images/graphiclarge/black_wall_266397.jpg) no-repeat center center fixed;
+    background-size: cover;
+    width: 100%;
+    height: 480px;
+    -webkit-filter: blur(7px);
+    -moz-filter: blur(7px);
+    -o-filter: blur(7px);
+    filter: blur(7px);
+}
+.content {
+    color: #efefef;
+    position: relative;
+}
+.content p {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    font-size: 40px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 480px;
+}
+</pre>
+            <p>Note that the parent element is relatively positioned, thus the absolutely positioned child element can be placed relative to its parent.</p>
+        </div>
+        <div class="content">
+            <div class="bg-img"></div>
+            <p>Hello World</p>
+        </div>
+        <p>Source Files:</p>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/Project-Experiments/02-blur-background.html">html</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/Project-Experiments/02.css">css</a>
+        <p>Reference:</p>
+        <a target="_blank" href="http://stackoverflow.com/questions/20039765/how-to-apply-a-css-3-blur-filter-to-a-background-image-that-i-am-setting-with-ba">Stackoverflow</a><br />
+        <a target="_blank" href="http://css-tricks.com/absolute-positioning-inside-relative-positioning/">CSS-Tricks</a><br />
+    </div>
+</body>
+</html>

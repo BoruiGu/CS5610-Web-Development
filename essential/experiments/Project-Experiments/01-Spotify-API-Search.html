@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Week 8 - Spotify API-Search</title>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="01.js"></script>
+</head>
+<body>
+    <div class="container" ng-app="SearchApp" ng-controller="SearchCtrl">
+        <h2>Week 8 - Spotify API-Search</h2>
+        <p>
+            My project will need music information. In this experiment, I test search functionality of Spotify WEB API.<br />
+            The API supports searching for album, artist, track and playlist. In this experiment, only track results are rendered.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <input ng-model="query" class="form-control" title="Search" placeholder="Search for tracks" type="text" />
+                    <span class="input-group-btn">
+                        <button ng-click="search(query)" class="btn btn-default" type="button">Search</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div ng-show="res">
+            <h3>Tracks:</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Song</th>
+                                <th>Artist</th>
+                                <th>Album</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="track in res.tracks.items">
+                                <td>{{track.name}}</td>
+                                <td>
+                                    <span ng-repeat="artist in track.artists">
+                                        {{artist.name}}
+                                    </span>
+                                </td>
+                                <td>{{track.album.name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="container">
+        <pre>
+&lt;tbody&gt;
+    &lt;tr ng-repeat=&quot;track in res.tracks.items&quot;&gt;
+        &lt;td&gt;{{track.name}}&lt;/td&gt;
+        &lt;td&gt;
+            &lt;span ng-repeat=&quot;artist in track.artists&quot;&gt;
+                {{artist.name}}
+            &lt;/span&gt;
+        &lt;/td&gt;
+        &lt;td&gt;{{track.album.name}}&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/tbody&gt;
+</pre>
+        <pre>
+$scope.search = function (query) {
+    var queryUrl = &quot;https://api.spotify.com/v1/search?q=&quot;+query+&quot;&amp;type=album,artist,track&amp;limit=5&quot;;
+    $http.get(queryUrl).success(function (res) {
+        console.log(res);
+        $scope.res = res;
+    });
+};
+</pre>
+        <p>Source Files:</p>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/Project-Experiments/01-Spotify-API-Search.html">html</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/Project-Experiments/01.js">js</a>
+        <p>Reference:</p>
+        <a target="_blank" href="https://developer.spotify.com">Spotify</a>        
+    </div>
+</body>
+</html>
