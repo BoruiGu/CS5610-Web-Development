@@ -17,7 +17,8 @@
         <p>
             A user may open multiple instances(tabs) of my project. There should be a method that when one instance starts playing music, it tells other instances (if any) that they should not play music at the same time.<br />
             In this experiment, I use localStorage to achieve Cross-tab communication:<br />
-            <code>storage</code> event is fired when setItem() or removeItem() is called, and content of localStorage is updated. By registering to the event, multiple instances can communicate.
+            <code>storage</code> event is fired when setItem() or removeItem() is called, and content of localStorage is updated. By registering to the event, multiple instances can communicate.<br />
+            Note: This experiment may not work properly in IE or on mobile.
         </p>        
         <pre>
 Open two or more instances of this experiment, and click "Play" on the instances.
