@@ -9,6 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="06.js"></script>
+    <link rel="stylesheet" href="06.css" />
 </head>
 <body>
     <div class="container" ng-app="SearchApp" ng-controller="SearchCtrl">
@@ -49,16 +50,16 @@
                                 <td>
                                     <a href="http://www.google.com/">
                                         {{item.name}}
-                                        </a>
-</td>
+                                    </a>
+                                </td>
                             </tr>
                             <tr ng-repeat="item in ACRes.artists.items">
                                 <td ng-if="$first" rowspan="{{ACRes.artists.items.length}}">Artist</td>
                                 <td>
                                     <a href="http://www.google.com/">
                                         {{item.name}}
-                                        </a>
-</td>
+                                    </a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
