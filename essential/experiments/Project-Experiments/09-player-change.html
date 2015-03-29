@@ -31,7 +31,14 @@
             <p>Duration: {{duration}}ms</p>
             <p>Volume: {{volume}}%</p>
         </div>
-
+        <pre>
+$scope.changeProgress = function () {
+    player.currentTime = $scope.progress / 1000.0;
+};
+$scope.changeVolume = function () {
+    player.volume = $scope.volume / 100.0;
+};
+</pre>
         <p>Source Files:</p>
         <a target="_blank" href="../../fileview/Default.aspx?~/experiments/Project-Experiments/09-player-change.html">html</a>
         <a target="_blank" href="../../fileview/Default.aspx?~/experiments/Project-Experiments/09.js">js</a>
