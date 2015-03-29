@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Week 9 - Auto Complete</title>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="06.js"></script>
+</head>
+<body>
+    <div class="container" ng-app="SearchApp" ng-controller="SearchCtrl">
+        <h2>Week 9 - Auto Complete</h2>
+        <p>
+            This experiment is based on a <a href="01-Spotify-API-Search.html" target="_blank">previous experiment</a>.<br />
+            Suggestions will appear as the user is typing the query string.<br />
+            Other improvements made:<br />
+            Check for invalid query (null, undefined, empty string) before sending a request to API<br />
+            Now user can submit query by pressing enter.<br />
+            Note: links in the suggestions should link to detail page of the item. Since detail page is not there yet, currently they just link to google.
+        </p>
+        <div class="searchBoxWrap row">
+            <div class="col-md-6">
+                <form ng-submit="search(query)">
+                    <div class="input-group">
+                        <input ng-change="autoComplete(query)" ng-model="query" class="form-control" title="Please enter a search query" placeholder="Search for tracks" type="text" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit">Search</button>
+                        </span>
+                    </div>
+                    <table class="searchSuggestion table table-striped">
+                        <tbody>
+                            <tr ng-repeat="item in ACRes.tracks.items">
+                                <td ng-if="$first" rowspan="{{ACRes.tracks.items.length}}">Track</td>
+                                <td>
+                                    <a href="http://www.google.com/">
+                                        {{item.name}} -
+                                        <span ng-repeat="artist in item.artists">
+                                            {{artist.name}}
+                                            <span ng-if="!($last)">&amp;</span>
+                                        </span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr ng-repeat="item in ACRes.albums.items">
+                                <td ng-if="$first" rowspan="{{ACRes.albums.items.length}}">Album</td>
+                                <td>
+                                    <a href="http://www.google.com/">
+                                        {{item.name}}
+                                        </a>
+</td>
+                            </tr>
+                            <tr ng-repeat="item in ACRes.artists.items">
+                                <td ng-if="$first" rowspan="{{ACRes.artists.items.length}}">Artist</td>
+                                <td>
+                                    <a href="http://www.google.com/">
+                                        {{item.name}}
+                                        </a>
+</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <!--Ends Search Box Wrap-->
+        <div>
+            This line appears right after the <code>div</code> for search box, and is used to make sure contents after search box won't move up and down as list of auto complete suggestions hide and show.
+        </div>
+        <div ng-show="res">
+            <h3>Tracks:</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Song</th>
+                                <th>Artist</th>
+                                <th>Album</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="track in res.tracks.items">
+                                <td>{{track.name}}</td>
+                                <td>
+                                    <span ng-repeat="artist in track.artists">
+                                        {{artist.name}}
+                                    </span>
+                                </td>
+                                <td>{{track.album.name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="container">
+        <pre>
+&lt;div class=&quot;searchBoxWrap row&quot;&gt;
+    &lt;div class=&quot;col-md-6&quot;&gt;
+        &lt;form ng-submit=&quot;search(query)&quot;&gt;
+            &lt;div class=&quot;input-group&quot;&gt;
+                &lt;input ng-change=&quot;autoComplete(query)&quot; ng-model=&quot;query&quot; ... /&gt;
+                ...
+            &lt;/div&gt;
+            &lt;table class=&quot;searchSuggestion table table-striped&quot;&gt;
+                ...
+            &lt;/table&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;!--Ends Search Box Wrap--&gt;
+</pre>
+        <pre>
+.searchBoxWrap {
+    height: 34px; position: relative; z-index: 3
+}
+.searchSuggestion {
+    position: absolute; background: white
+}
+</pre>
+        <pre>
+$scope.autoComplete = function (query) {
+    $scope.ACRes = null;
+    search(query, function (res) {
+        $scope.ACRes = res;
+    });
+};
+</pre>
+        <p>Source Files:</p>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/Project-Experiments/06-auto-complete.html">html</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/Project-Experiments/06.js">js</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/Project-Experiments/06.css">css</a>
+    </div>
+</body>
+</html>

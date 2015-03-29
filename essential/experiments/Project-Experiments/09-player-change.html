@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Week 9 - Player - Change Progress &amp; Volume</title>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="09.js"></script>
+    <link rel="stylesheet" href="09.css" />
+</head>
+<body>
+    <div class="container" ng-app="PlayerApp" ng-controller="PlayerCtrl">
+        <h2>Week 9 - Player - Change Progress &amp; Volume</h2>
+        <p>
+            This experiment is based on a <a href="08-player-pause.html" target="_blank">previous expeirment</a>.<br />
+            User can drag progress bar to change current progress of the audio.<br />
+            Note: When playerStarted is false (i.e. either the audio has not been loaded, or the audio has reached the end), the audio will always play from the beginning when "Play" is clicked.<br />
+            A vertical volume bar is added. User can drag it to change volume.
+        </p>
+        <button ng-click="startPlaying()" ng-hide="playerStarted" class="btn btn-success">Play</button>
+        <button ng-click="pause()" ng-show="isPlaying" class="btn btn-success">Pause</button>
+        <button ng-click="resume()" ng-show="isPaused" class="btn btn-success">Resume</button>
+        <input type="range" ng-model="progress" ng-change="changeProgress()" min="0" max="{{duration}}" />
+        <!--orient="vertical" for firefox-->
+        <input id="volumeSlider" type="range" orient="vertical" ng-model="volume" ng-change="changeVolume()" min="0" max="100" />
+        <div>
+            <p>Progress: {{progress}}ms</p>
+            <p>Duration: {{duration}}ms</p>
+            <p>Volume: {{volume}}%</p>
+        </div>
+
+        <p>Source Files:</p>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/Project-Experiments/09-player-change.html">html</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/Project-Experiments/09.js">js</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/Project-Experiments/09.css">css</a>
+        <p>Reference:</p>
+        <a target="_blank" href="http://stackoverflow.com/questions/15935837/how-to-display-a-range-input-slider-vertically">Stackoverflow</a>
+    </div>
+</body>
+</html>

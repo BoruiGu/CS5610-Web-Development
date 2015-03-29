@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Week 9 - Player - Layout</title>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="10.js"></script>
+    <link rel="stylesheet" href="10.css" />
+</head>
+<body>
+    <div class="container" ng-app="PlayerApp" ng-controller="PlayerCtrl">
+        <h2>Week 9 - Player - Layout</h2>
+        <p>
+            This experiment is based on two previous experiments: <a href="09-player-change.html" target="_blank">Player - Change</a> and <a href="../bootstrap/06-fixed-to-bottom.html" target="_blank">Fixed to Bottom</a><br />
+            Player controls live in a navbar fixed to bottom of the page.<br />
+            Note: Prev &amp; Next functionality have not yet implemented. The two buttons are there only for showing the layout.<br />
+        </p>
+        <nav class="navbar navbar-inverse navbar-fixed-bottom">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 playerWrap">
+                    <div class="btn-Prev">
+                        <a ng-click="prev()"><span class="glyphicon glyphicon-step-backward"></span></a>
+                    </div>
+                    <div class="btn-Play">
+                        <a ng-click="startPlaying()" ng-hide="playerStarted"><span class="glyphicon glyphicon-play"></span></a>
+                        <a ng-click="pause()" ng-show="isPlaying"><span class="glyphicon glyphicon-pause"></span></a>
+                        <a ng-click="resume()" ng-show="isPaused"><span class="glyphicon glyphicon-play"></span></a>
+                    </div>
+                    <div class="btn-Next">
+                        <a ng-click="prev()"><span class="glyphicon glyphicon-step-forward"></span></a>
+                    </div>
+                    <div class="bar-progress">
+                        <input type="range" ng-model="progress" ng-change="changeProgress()" min="0" max="{{duration}}" />
+                    </div>
+                    <!--orient="vertical" for firefox-->
+                    <input ng-show="showVolumeSlider" id="volumeSlider" type="range" orient="vertical" ng-model="volume" ng-change="changeVolume()" min="0" max="100" />
+                    <div class="btn-volume">                        
+                        <a ng-click="showVolumeSlider = !showVolumeSlider"><span class="glyphicon glyphicon-volume-up"></span></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div>
+            <p>Progress: {{progress}}ms</p>
+            <p>Duration: {{duration}}ms</p>
+            <p>Volume: {{volume}}%</p>
+        </div>
+        <pre>
+&lt;nav class=&quot;navbar navbar-inverse navbar-fixed-bottom&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-md-2&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;col-md-8 playerWrap&quot;&gt;
+            &lt;div class=&quot;btn-Prev&quot;&gt;
+                &lt;a ng-click=&quot;prev()&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-step-backward&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;btn-Play&quot;&gt;
+                &lt;a ng-click=&quot;startPlaying()&quot; ng-hide=&quot;playerStarted&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-play&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                &lt;a ng-click=&quot;pause()&quot; ng-show=&quot;isPlaying&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-pause&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+                &lt;a ng-click=&quot;resume()&quot; ng-show=&quot;isPaused&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-play&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;btn-Next&quot;&gt;
+                &lt;a ng-click=&quot;prev()&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-step-forward&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;bar-progress&quot;&gt;
+                &lt;input type=&quot;range&quot; ng-model=&quot;progress&quot; ng-change=&quot;changeProgress()&quot; min=&quot;0&quot; max=&quot;{{duration}}&quot; /&gt;
+            &lt;/div&gt;
+            &lt;!--orient=&quot;vertical&quot; for firefox--&gt;
+            &lt;input ng-show=&quot;showVolumeSlider&quot; id=&quot;volumeSlider&quot; type=&quot;range&quot; orient=&quot;vertical&quot; ng-model=&quot;volume&quot; ng-change=&quot;changeVolume()&quot; min=&quot;0&quot; max=&quot;100&quot; /&gt;
+            &lt;div class=&quot;btn-volume&quot;&gt;                        
+                &lt;a ng-click=&quot;showVolumeSlider = !showVolumeSlider&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-volume-up&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;
+</pre>
+        <pre>
+.navbar{
+    height: 45px;
+    min-height: 45px;
+}
+.row{
+    height: inherit;
+}
+.playerWrap{
+    position: relative;
+    height: inherit;
+}
+.playerWrap .btn-Prev{    
+    position: absolute;
+    top: 50%;
+    /* This won&#39;t work as margin percentages 
+       are always calculated against width */
+    /*margin-top: -25%;*/
+    transform: translate(0, -50%);
+    left: 5px;
+}
+.playerWrap .btn-Play{
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 40px;
+}
+.playerWrap .btn-Next{
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    left: 75px;
+}
+.playerWrap .bar-progress{
+    position: absolute;
+    left: 110px;
+    right: 20px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+.playerWrap .btn-volume{
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+#volumeSlider{
+    position: absolute;
+    right: 0px;
+    writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* WebKit */
+    width: 8px;
+    height: 100px;
+    top: -100px;
+    transform: translate(-50%, 0);
+}
+</pre>
+        <p>Source Files:</p>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/Project-Experiments/10-player-style.html">html</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/Project-Experiments/10.js">js</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/Project-Experiments/10.css">css</a>
+        <p>Reference</p>
+        <a target="_blank" href="https://css-tricks.com/centering-percentage-widthheight-elements/">CSS-Tricks</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Week 9 - Player - Pause &amp; Resume</title>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="08.js"></script>
+</head>
+<body>
+    <div class="container" ng-app="PlayerApp" ng-controller="PlayerCtrl">
+        <h2>Week 9 - Player - Pause &amp; Resume</h2>
+        <p>
+            This experiment is based on a <a href="07-player-progress-bar.html" target="_blank">previous expeirment</a>.<br />
+            Pause &amp; Resume button are added. There are three variables to descirbe status of the player: <br />
+            <ul>
+                <li>Before the audio is loaded, all three variables are false</li>
+                <li>After loadedmetadata event, playerStarted and isPlaying are set to true</li>
+                <li>When "Pause" button is clicked, isPlaying is set to false, isPaused is set to true</li>
+                <li>When "Resume" button is clicked, isPlaying is set to true, isPaused is set to false</li>
+                <li>When "ended" event occurs(i.e. the audio has reached the end), all three variables are set to false</li>
+            </ul>
+        </p>
+        <button ng-click="startPlaying()" ng-hide="playerStarted" class="btn btn-success">Play</button>
+        <button ng-click="pause()" ng-show="isPlaying" class="btn btn-success">Pause</button>
+        <button ng-click="resume()" ng-show="isPaused" class="btn btn-success">Resume</button>
+        <input type="range" ng-model="progress" min="0" max="{{duration}}" />
+        <div>
+            <p>Progress: {{progress}}ms</p>
+            <p>Duration: {{duration}}ms</p>
+        </div>
+        <pre>
+&lt;button ng-click=&quot;startPlaying()&quot; ng-hide=&quot;playerStarted&quot; class=&quot;btn btn-success&quot;&gt;Play&lt;/button&gt;
+&lt;button ng-click=&quot;pause()&quot; ng-show=&quot;isPlaying&quot; class=&quot;btn btn-success&quot;&gt;Pause&lt;/button&gt;
+&lt;button ng-click=&quot;resume()&quot; ng-show=&quot;isPaused&quot; class=&quot;btn btn-success&quot;&gt;Resume&lt;/button&gt;
+</pre>
+        <pre>
+$scope.progress = 0;
+$scope.playerStarted = false;
+$scope.isPlaying = false;
+$scope.isPaused = false;
+$scope.startPlaying = function () {
+    $scope.progress = 0;
+    player.src = &quot;https://p.scdn.co/mp3-preview/885021ec9b6ac110238a9463bdcc0dc6d4778cec&quot;;
+    player.addEventListener(&#39;loadedmetadata&#39;, function () {
+        console.log(&#39;player loadedmetadata&#39;);
+        $scope.duration = player.duration * 1000;
+        player.play();
+        setTimer();
+        $scope.playerStarted = true;
+        $scope.isPlaying = true;
+        $scope.isPaused = false;
+    }, false);
+    player.addEventListener(&#39;ended&#39;, function () {
+        console.log(&#39;track ended&#39;);
+        stopTimer();
+        $scope.playerStarted = false;
+        $scope.isPaused = false;
+        $scope.isPlaying = false;            
+    }, false);
+}
+$scope.pause = function () {
+    player.pause();
+    stopTimer();
+    $scope.isPlaying = false;
+    $scope.isPaused = true;
+};
+$scope.resume = function () {
+    player.play();
+    setTimer();
+    $scope.isPlaying = true;
+    $scope.isPaused = false;
+}
+</pre>
+        <p>Source Files:</p>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/Project-Experiments/08-player-pause.html">html</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/Project-Experiments/08.js">js</a>
+    </div>
+</body>
+</html>

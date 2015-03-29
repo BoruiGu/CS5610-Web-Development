@@ -1,0 +1,7 @@
+﻿.searchBoxWrap {
+    height: 34px; position: relative; z-index: 3
+}
+
+.searchSuggestion {
+    position: absolute; background: white
+}

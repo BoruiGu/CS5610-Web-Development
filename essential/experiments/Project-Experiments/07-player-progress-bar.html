@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Week 9 - Player - Progress Bar</title>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="07.js"></script>
+</head>
+<body>
+    <div class="container" ng-app="PlayerApp" ng-controller="PlayerCtrl">
+        <h2>Week 9 - Player - Progress Bar</h2>
+        <p>
+            This will be the first experiment in a series of experiments on building my own music player.<br />
+            A progress bar is built to show the current progress of a track.<br />
+            When the "Play" button is clicked:<br />
+            <ul>
+                <li>Set URL of the audio file (which is hard-coded now).</li>
+                <li>Wait for loadedmetadata event</li>
+                <li>Get duration of the audio file</li>
+                <li>Start playing</li>
+                <li>Start a timer so that every 100ms a tick() function is called to update current progress.</li>
+            </ul>
+        </p>
+        <button ng-click="play()" class="btn btn-success">Play</button>
+        <input type="range" ng-model="progress" min="0" max="{{duration}}" />
+        <div>
+            <p>Progress: {{progress}}ms</p>
+            <p>Duration: {{duration}}ms</p>
+        </div>
+        <pre>
+$scope.play = function () {
+    $scope.progress = 0;
+    player.loop = true;
+    player.src = &quot;https://p.scdn.co/mp3-preview/885021ec9b6ac110238a9463bdcc0dc6d4778cec&quot;;
+    player.addEventListener(&#39;loadedmetadata&#39;, function () {            
+        console.log(&#39;player loadedmetadata&#39;);
+        $scope.duration = player.duration * 1000;
+        player.play();
+        setTimer();
+    }, false);     
+}
+var timer = 0;
+function tick() {
+    $scope.progress = Math.floor(player.currentTime * 1000);
+}
+function setTimer() {
+    stopTimer();
+    timer = $interval(tick, 100);
+}
+function stopTimer() {
+    $interval.cancel(timer);
+}
+</pre>
+        <p>Source Files:</p>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/Project-Experiments/07-player-progress-bar.html">html</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/Project-Experiments/07.js">js</a>
+    </div>
+</body>
+</html>
