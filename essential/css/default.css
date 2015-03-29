@@ -1,0 +1,142 @@
+﻿a {
+    color: #08f;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+    a:visited {
+        color: #88f;
+    }
+
+    a:hover {
+        color: #f00;
+    }
+
+p {
+    text-align: justify;
+}
+
+/*phone*/
+@media screen and (max-width: 1024px) {
+    body {
+        font-size: +70px;
+    }
+
+    p {
+        text-align: left;
+    }
+
+    .content {
+        display: table;
+    }
+
+        .content .master_navigation {
+            display: table-footer-group;
+        }
+
+        .content .profile {
+            display: table-header-group;
+        }
+        
+        .content .right_content {
+            position: relative;
+            top: -50px;            
+        }
+
+        .profile {
+            position: relative;
+            width: 100%;
+        }
+
+        #profile_picture {
+            width: 50%;
+            padding-top:50%;
+            background: url("../images/photos/profile.jpg") no-repeat;
+            background-position: right -50px;
+            background-size: 100% Auto;
+        }
+        
+
+        .my_link {
+            display: inline;
+        }
+
+        .seperator {
+        display: none;
+    }
+}
+
+/*desktop*/
+@media screen and (min-width: 1024px) {
+    .content {
+        width: 960px;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    ul.master_navigation {
+        width: 960px;
+        font-size: 100%;
+        font-weight: bold;
+        text-align: center;
+        list-style: none;
+        margin: 0.5em 0;
+        padding: 0;
+    }
+
+        ul.master_navigation li {
+            display: inline-block;
+            padding: 0 0.5%;
+        }
+
+    #profile_picture {
+        width: 300px;
+        height: 300px;
+        background: url("../images/photos/profile.jpg") no-repeat;
+        background-size: 300px Auto;
+        margin-right: 10px;
+        margin-left: 10px;
+        border-radius: 50px 50px 50px 50px;
+        -moz-border-radius: 50px 50px 50px 50px;
+        -webkit-border-radius: 50px 50px 50px 50px;
+        border: 0px solid #000000;
+    }
+
+    .clear {
+        clear: both;
+    }
+
+    .pad {
+        padding: 10px;
+    }
+
+    .row {
+        display: block;
+        width: 960px;
+    }
+
+    .col-1 {
+        float: left;
+        width: 80px;
+    }
+
+    .col-4 {
+        float: left;
+        width: 320px;
+    }
+
+    .col-6 {
+        float: left;
+        width: 480px;
+    }
+
+    .my_link {
+        display: block;
+        width: 100px;
+    }
+
+    .seperator {
+        display: block;
+    }
+}
