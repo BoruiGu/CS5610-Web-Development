@@ -1,0 +1,8 @@
+../story/index.htm?../experiments/css/story.txt                     css
+../story/index.htm?../experiments/html/story.txt                    html
+../story/index.htm?../experiments/bootstrap/story.txt               bootstrap
+../story/index.htm?../experiments/jQuery/story.txt                  jQuery
+../story/index.htm?../experiments/ajax/story.txt                    ajax
+../story/index.htm?../experiments/angular/story.txt                 angular
+../story/index.htm?../experiments/Node.js/story.txt                 Node.js
+../story/index.htm?../experiments/Project-Experiments/story.txt     Project-Experiments

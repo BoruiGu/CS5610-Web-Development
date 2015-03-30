@@ -1,0 +1,5 @@
+../Project-Experiments/01-Spotify-API-Search.html  Project: Spotify API - Search
+../Project-Experiments/02-blur-background.html     Project: Blurred Background
+../Project-Experiments/03-favicon.html             Project: Favicon
+../Project-Experiments/04-scroll-bar.html          Project: Custom Scroll Bar
+../Project-Experiments/05-cross-tab.html           Project: Cross-tab Communication
