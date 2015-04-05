@@ -14,7 +14,7 @@
         <p>
             In this experiment an association table is used to represent many-to-many relationship.<br />
             Each entry in the association table is a pair of foreign keys.<br />
-            SQL query: <code>select name, major from student where id in (select studentId from attend where clubName = 'sport')</code>
+            SQL query: <code>select name, major from student where id in (select studentId from attend where clubName = 'sport')</code><br />			   
         </p>
         <h3>Experiment URL:</h3>
         <a class="lead" target="_blank" href="http://experiments-borui.rhcloud.com/api/clubmember?clubName=sport">OpenShift</a>
@@ -28,6 +28,28 @@ app.get(&#39;/api/clubmember&#39;, function (req, res) {
     });
 });
 </pre>
+        <p>
+		   Tables:<br />
+			<b>student</b>       <br />
+			id name major <br />
+            1  S-1  CS    <br />
+            2  S-2  ME    <br />
+            3  S-3  CS    <br />
+            4  S-4  CS    <br />
+            5  S-5  MC    <br />
+			<b>club</b>          <br />
+			name          <br />
+			singing       <br />
+			sport         <br />
+			<b>attend</b><br />
+			studentId clubName<br />
+            1         sport<br />
+            2         sport<br />
+            4         sport<br />
+            3         singing<br />
+            5         singing<br />
+            1         singing<br />        
+		</p>
         <p>Source Files:</p>
         <a target="_blank" href="https://github.com/BoruiGu/CS5610-OpenShift-Exp-Backup/blob/master/server.js">js</a>
     </div>
