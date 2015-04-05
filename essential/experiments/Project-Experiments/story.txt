@@ -8,4 +8,9 @@
 08-player-pause.html                 Player - Pause & Resume
 09-player-change.html                Player - Change Progress & Volume
 10-player-layout.html                Player - Layout
+11-mysql-connection.html             MySQL - Connection
+12-mysql-select.html				 MySQL - Select
+13-mysql-insert.html				 MySQL - Insert
+14-mysql-associate.html				 MySQL - Associate
+15-mysql-associate-split.html		 MySQL - Associate - Split
 story.txt                            The story file for this story

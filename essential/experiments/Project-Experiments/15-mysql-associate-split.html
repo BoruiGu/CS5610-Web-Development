@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Week 10 - MySQL Associate - Split</title>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>       
+</head>
+<body>
+    <div class="container">
+        <h2>Week 10 - MySQL Associate - Split</h2>
+        <p>
+            This experiment does exactly the same thing as <a href="14-mysql-associate.html" target="_blank">the previous experiment</a><br />
+            But instead of one long sql query, in this experiment it is achieved by two sequential queries:<br />
+            <ul>
+                <li>Perform the inner query from previous experiment's query</li>
+                <li>Store query result in a javascript array</li>
+                <li>Escape the array, use it to generate a second query</li>
+            </ul>
+        </p>
+        <h3>Experiment URL:</h3>
+        <a class="lead" target="_blank" href="http://experiments-borui.rhcloud.com/api/clubmember2?clubName=sport">OpenShift</a>
+        <pre>
+app.get(&#39;/api/clubmember2&#39;, function (req, res) {
+    var clubName = url.parse(req.url, true).query.clubName;
+    var Id = [];
+    connection.query(
+    &#39;select studentId from attend where clubName = ?&#39;, clubName,
+    function (err, rows, fields) {
+        for (var i = 0; i &lt; rows.length; i++) {
+            Id.push(rows[i].studentId);
+        }      
+        var query = connection.query(
+        &#39;select name, major from student where id in (&#39;+connection.escape(Id)+&#39;)&#39;,
+        function (err, rows, fields) {
+            console.log(err);
+            res.json(rows);
+        });
+        console.log(query.sql);
+    });         
+});
+</pre>
+        <p>Source Files:</p>
+        <a target="_blank" href="https://github.com/BoruiGu/CS5610-OpenShift-Exp-Backup/blob/master/server.js">js</a><br />
+        <p>Reference</p>
+        <a target="_blank" href="https://github.com/felixge/node-mysql#escaping-query-values">Node-mysql</a>
+    </div>
+</body>
+</html>

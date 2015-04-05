@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Week 10 - MySQL Select</title>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>       
+</head>
+<body>
+    <div class="container">
+        <h2>Week 10 - MySQL Select</h2>
+        <p>
+            In this experiment records are retrieved from database using SELECT statement.<br />
+            Server then send retrieved data to client in JSON format.<br />
+            Link below retrieves all records in a table.
+        </p>
+        <h3>Experiment URL:</h3>
+        <a class="lead" target="_blank" href="http://experiments-borui.rhcloud.com/api/students">OpenShift</a>
+        <pre>
+app.get(&#39;/api/students&#39;, function (req, res) {
+    connection.query(&#39;SELECT * from student&#39;, function (err, rows, fields) {
+        if (err) throw err;
+        res.json(rows);
+    });
+});
+</pre>
+        <p>Source Files:</p>
+        <a target="_blank" href="https://github.com/BoruiGu/CS5610-OpenShift-Exp-Backup/blob/master/server.js">js</a>
+    </div>
+</body>
+</html>

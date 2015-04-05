@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Week 10 - MySQL Connection</title>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>       
+</head>
+<body>
+    <div class="container">
+        <h2>Week 10 - MySQL Connection</h2>
+        <p>
+            In my project, I will use MySQL to manage data.<br />
+            This will be the first experiment in a series of experiments on using MySQL database on OpenShift.<br />
+            In this experiment, a hello world message is stored in a table. Server side code sends a query to MySQL to retrieve this message, and send it to client.<br /><br />
+            I use three methods to access remote MySQL database:<br />
+            <ul>
+                <li>Node-mysql for server side code</li>
+                <li>phpMyAdmin for online control</li>
+                <li>
+                    Port Forwarding for local MySQL Workbrench connection:
+                    <code>rhc port-forward -a #application_name</code>
+                </li>
+            </ul>
+        </p>
+        <h3>Experiment URL:</h3>
+        <a class="lead" target="_blank" href="http://experiments-borui.rhcloud.com/helloMySQL">OpenShift</a>
+        <pre>
+var mysql = require(&#39;mysql&#39;);
+var connection = mysql.createConnection({
+    host: process.env.OPENSHIFT_MYSQL_DB_HOST || &#39;127.0.0.1&#39;,
+    port: process.env.OPENSHIFT_MYSQL_DB_PORT || 3306,
+    user: &#39;admingthglhl&#39;,
+    password: &#39;GpypqKGzdQWP&#39;,
+    database: &#39;experiments&#39;
+});
+connection.connect();
+app.get(&#39;/helloMySQL&#39;, function (req, res) {        
+    connection.query(&#39;SELECT * from test&#39;, function (err, rows, fields) {
+        if (err) throw err;
+        console.log(rows);
+        console.log(fields);        
+        res.send(rows[0].str);
+    });    
+});
+</pre>
+        <p>Source Files:</p>
+        <a target="_blank" href="https://github.com/BoruiGu/CS5610-OpenShift-Exp-Backup/blob/master/server.js">js</a>
+        <p>Reference</p>
+        <a target="_blank" href="https://blog.openshift.com/getting-started-with-port-forwarding-on-openshift/">OpenShift</a><br />
+        <a target="_blank" href="https://github.com/felixge/node-mysql/">Node-MySQL</a>        
+    </div>
+</body>
+</html>
