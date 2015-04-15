@@ -70,7 +70,36 @@
 			<p class="lead">
 			    This experiment tests tables in Bootstrap. Bootstrap tables are declared in class <code>table</code>. Class <code>table-striped</code> makes odd rows in the table displayed on a grey background, and even rows on a white background, for creating contrast. <code>rowspan</code> or <code>colspan</code> in <code>td</code> tag lets the cell span over multiple rows or columns.
 			</p>
-
+            <pre>
+&lt;table class=&quot;table table-striped table-bordered&quot;&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;#&lt;/th&gt;
+            &lt;th&gt;Property 1&lt;/th&gt;
+            &lt;th&gt;Property 2&lt;/th&gt;
+            &lt;th&gt;Property 3&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td rowspan=&quot;2&quot;&gt;1&lt;/td&gt;
+            &lt;td&gt;P1&lt;/td&gt;
+            &lt;td&gt;P1&lt;/td&gt;
+            &lt;td&gt;P1&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;P2&lt;/td&gt;
+            &lt;td&gt;P2&lt;/td&gt;
+            &lt;td&gt;P2&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;3&lt;/td&gt;
+            &lt;td colspan=&quot;2&quot;&gt;P3&lt;/td&gt;
+            &lt;td&gt;P3&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</pre>
             <p class="lead">Source Files:</p>
             <blockquote>
                 <a target="_blank" href="../../fileview/Default.aspx?~/experiments/bootstrap/04-table.html">html</a>

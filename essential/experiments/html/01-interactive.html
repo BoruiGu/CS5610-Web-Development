@@ -83,6 +83,85 @@
                 </div>
             </form>
         </details>
+        <code>
+            <pre>
+&lt;ul&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;#source&quot;&gt;Source Files&lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+&lt;details open&gt;
+    &lt;summary&gt;Click to show/hide the form&lt;/summary&gt;
+    &lt;form&gt;
+        &lt;div&gt;
+            &lt;div&gt;
+                Progress
+            &lt;/div&gt;
+            &lt;progress max=&quot;100&quot; value=&quot;40&quot;&gt;&lt;/progress&gt;
+        &lt;/div&gt;
+        &lt;br /&gt;
+        &lt;div class=&quot;field-group&quot;&gt;
+            &lt;label class=&quot;field-lable&quot; for=&quot;email&quot;&gt;Email&lt;/label&gt;
+            &lt;div class=&quot;field&quot;&gt;
+                &lt;input id=&quot;email&quot; placeholder=&quot;username@sxxxx.com&quot; title=&quot;Please enter your email&quot; name=&quot;email&quot; type=&quot;email&quot; autofocus /&gt;
+            &lt;/div&gt;
+            &lt;p&gt;here we have a placeholder as a hint for the users, a phrase &quot;Please enter your email&quot; that will appear when the user hovers on it, the input field is selected by default using autofocus attribute, input will be checked for validity on submission.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;field-group&quot;&gt;
+            &lt;label class=&quot;field-lable&quot; for=&quot;birthday&quot;&gt;Birthday&lt;/label&gt;
+            &lt;div class=&quot;field&quot;&gt;
+                &lt;input id=&quot;brithday&quot; title=&quot;Please enter your birthday&quot; name=&quot;birthday&quot; type=&quot;date&quot; /&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;field-group&quot;&gt;
+            &lt;label class=&quot;field-lable&quot; for=&quot;age&quot;&gt;Age&lt;/label&gt;
+            &lt;div class=&quot;field&quot;&gt;
+                &lt;input id=&quot;age&quot; title=&quot;Please enter your age&quot; name=&quot;age&quot; type=&quot;number&quot; min=&quot;1&quot; max=&quot;150&quot; value=&quot;30&quot; /&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;field-group&quot;&gt;
+            &lt;input id=&quot;male&quot; type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;male&quot; /&gt;
+            &lt;label for=&quot;male&quot;&gt;Male&lt;/label&gt;
+            &lt;input id=&quot;female&quot; type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;female&quot; /&gt;
+            &lt;label for=&quot;female&quot;&gt;Female&lt;/label&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;field-group&quot;&gt;
+            &lt;div&gt;
+                Education
+            &lt;/div&gt;
+            &lt;select name=&quot;education&quot;&gt;
+                &lt;option value=&quot;u&quot;&gt;undergraduate&lt;/option&gt;
+                &lt;option value=&quot;g&quot;&gt;graduate&lt;/option&gt;
+            &lt;/select&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;field-group&quot;&gt;
+            &lt;div&gt;
+                Education2
+            &lt;/div&gt;
+            &lt;input name=&quot;edu2&quot; list=&quot;edu2&quot; /&gt;
+            &lt;datalist id=&quot;edu2&quot;&gt;
+                &lt;option&gt;undergraduate&lt;/option&gt;
+                &lt;option&gt;graduate&lt;/option&gt;
+            &lt;/datalist&gt;
+        &lt;/div&gt;
+        &lt;br /&gt;
+        &lt;div class=&quot;field-group&quot;&gt;
+            &lt;div&gt;Follow:&lt;/div&gt;
+            &lt;input id=&quot;travel&quot; type=&quot;checkbox&quot; name=&quot;topics&quot; value=&quot;travel&quot; /&gt;
+            &lt;label class =&quot;field-lable&quot; for=&quot;travel&quot;&gt;Travel&lt;/label&gt;
+            &lt;input id=&quot;marriage&quot; type=&quot;checkbox&quot; name=&quot;topics&quot; value=&quot;marriage&quot; /&gt;
+            &lt;label class=&quot;field-lable&quot; for=&quot;marriage&quot;&gt;Marriage&lt;/label&gt;
+        &lt;/div&gt;
+        &lt;br /&gt;
+        &lt;div&gt;
+            &lt;button type=&quot;submit&quot;&gt;Submit&lt;/button&gt;
+            &lt;button type=&quot;reset&quot;&gt;Reset&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+&lt;/details&gt;
+&lt;a name=&quot;source&quot;&gt;&lt;/a&gt;
+</pre>
+        </code>
         <a name="source"></a>
         <h2 >Source Files </h2>
         <a target="_blank" href="../../fileview/Default.aspx?~/experiments/html/01-interactive.html">html</a>
