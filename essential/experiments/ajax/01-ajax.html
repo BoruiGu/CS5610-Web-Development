@@ -24,9 +24,6 @@
                     </thead>
                     <tbody class="parent">
                         <tr class="template">
-                            <td class="col-sm-4">
-                                <img class="poster" src="http://ia.media-imdb.com/images/M/MV5BMTg0MDQ1OTQ3MF5BMl5BanBnXkFtZTcwODE2MzE2MQ@@._V1_SY317_CR51,0,214,317_AL_.jpg">
-                            </td>
                             <td class="col-sm-8">
                                 <div>
                                     <b>Title</b>: <span class="title">Final Fantasy</span>
@@ -50,9 +47,6 @@
             <pre>
 &lt;tbody class=&quot;parent&quot;&gt;
     &lt;tr class=&quot;template&quot;&gt;
-        &lt;td class=&quot;col-sm-4&quot;&gt;
-            &lt;img class=&quot;poster&quot; src=&quot;http://ia.media-imdb.com/images/M/MV5BMTg0MDQ1OTQ3MF5BMl5BanBnXkFtZTcwODE2MzE2MQ@@._V1_SY317_CR51,0,214,317_AL_.jpg&quot;&gt;
-        &lt;/td&gt;
         &lt;td class=&quot;col-sm-8&quot;&gt;
             &lt;div&gt;
                 &lt;b&gt;Title&lt;/b&gt;: &lt;span class=&quot;title&quot;&gt;Final Fantasy&lt;/span&gt;
@@ -88,15 +82,12 @@ $(&quot;#get&quot;).click(function () {
             <pre>
 for (var i in movies) {
     var movie = movies[i];
-    if (!movie.urlPoster) continue;
     var title = movie.title;
-    var urlPoster = movie.urlPoster;
     var plot = movie.plot;
     var rating = movie.rating;
     var year = movie.year;
     var item = template.clone();
     item.find(&quot;.title&quot;).html(title);
-    item.find(&quot;.poster&quot;).attr(&quot;src&quot;, urlPoster);
     item.find(&quot;.plot&quot;).html(plot);
     item.find(&quot;.rating&quot;).html(rating);
     item.find(&quot;.year&quot;).html(year);

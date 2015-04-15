@@ -18,15 +18,12 @@
 function render(movies, parent, template) {        
     for (var i in movies) {
         var movie = movies[i];
-        if (!movie.urlPoster) continue;
         var title = movie.title;
-        var urlPoster = movie.urlPoster;
         var plot = movie.plot;
         var rating = movie.rating;
         var year = movie.year;
         var item = template.clone();
         item.find(".title").html(title);
-        item.find(".poster").attr("src", urlPoster);
         item.find(".plot").html(plot);
         item.find(".rating").html(rating);
         item.find(".year").html(year);
