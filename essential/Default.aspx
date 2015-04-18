@@ -47,7 +47,7 @@
                             <a class="my_link" href="story/index.htm?../experiments/story.txt" target="_blank">Experiments</a>
                             <a class="my_link" href="https://github.com/BoruiGu/CS5610-borui" target="_blank">Git</a>
                             <a class="my_link" href="http://music-borui.rhcloud.com/" target="_blank">Project</a>
-                            <a class="my_link" href="http://net4.ccs.neu.edu/home/borui/document/project.html" target="_blank">Document</a>
+                            <a class="my_link" href="http://net4.ccs.neu.edu/home/borui/document/project.html" target="_blank">Documentation</a>
                             <div class="seperator">&nbsp;</div>
                             <a href="blog/" target="_blank">Blog</a>
                         </div>
