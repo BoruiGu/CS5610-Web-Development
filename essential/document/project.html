@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Project Documentation</title>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="document.css" />
+</head>
+<body>
+    <div class="container">
+        <h2>Project Documentation</h2>
+        <details open>
+            <summary>Introduction</summary>
+            <p>
+                The goal of my Web Development project is to create a music app.<br />
+                An anonymous user can:
+                <ul>
+                    <li>search for a song, album or artist                                                   </li>
+                    <li>play songs; add songs to playlist (used by the player, stored in localStorage, not visible to other users)</li>
+                    <li>view & play mylists created by users                                           </li>
+                    <li>view comments made by users                                                    </li>
+                    <li>register and login                                                                   </li>
+                </ul>                                                                                        
+
+                After a user logged in, s/he can:
+                <ul>
+                    <li>access my profile page</li>
+                    <li>create mylist (stored in database, visible to all users)</li>
+                    <li>comment on songs, albums and artists                   </li>
+                    <li>follow other users                                     </li>
+                    <li>logout                                                 </li>
+                </ul>
+            </p>
+        </details>
+        <details>
+            <summary>Features</summary>
+            <details>
+                <summary>Player and playlist control build on HTML5 Audio</summary>
+                <p>it all starts from one simple line:</p>
+                <code>var player = new Audio();</code>                
+                <p>Player controls:</p>
+                <ul>
+                    <li>load and start playing</li>
+                    <li>pause</li>
+                    <li>resume</li>
+                    <li>change progress</li>
+                    <li>change volume</li>
+                </ul>
+                <p>Playlist controls:</p>
+                <ul>
+                    <li>get current playlist</li>
+                    <li>clear playlist</li>
+                    <li>set playlist</li>
+                    <li>get current position</li>
+                    <li>add</li>
+                    <li>remove</li>
+                    <li>seek position</li>
+                    <li>get current track</li>
+                    <li>next / prev</li>
+                </ul>
+                <p>Used <code>$emit</code> to communicate with state controllers</p>
+            </details>
+            <details>
+                <summary>Nested views</summary>
+                <p>Used <code>ui-router</code> to create nested views.</p>
+                <p>This is especially useful because of the nature of my project:</p>
+                <ul>
+                    <li>
+                        A search box (together with search suggestions) in:
+                        <ul>
+                            <li>homepage</li>
+                            <li>search result page</li>
+                        </ul>
+                    </li>
+                    <li>
+                        A list of tracks in:
+                        <ul>
+                            <li>search result</li>
+                            <li>artist's profile (top tracks of the artist)</li>
+                            <li>album view</li>
+                            <li>user's profile (mylist)</li>
+                        </ul>
+                    </li>
+                    <li>etc.</li>
+                </ul>                
+            </details>
+            <details>
+                <summary>Secure Login &amp; Register</summary>
+                <ul>
+                    <li>Generate random salt and hash password with salt before storing to database</li>
+                    <li>Use hash function with a high work factor (bcrypt in my case)</li>
+                </ul>
+            </details>
+            <details>
+                <summary>Cross-Tab Communication</summary>
+                <p>A user may open multiple instances (tabs) of my project, 
+                and I need to ensure that at any given time at most one of the instances is playing music. Else it would create a chaos.</p>
+                <p>I achieved this by setting localStorage on playing, and add listener to <code>storage</code> event.</p>
+            </details>
+            <details>
+                <summary>Custom Filters and Directives</summary>
+                <p>Created filters for:</p>
+                <ul>
+                    <li>artists: given a list of artists (for example all artists in an album with various artists), connect them with ampersand, and return a single string</li>
+                    <li>cover: given url of a cover image, determine if it's valid. If not return a "default cover image"</li>
+                    <li>datetime: given a timestamp, convert it to datetime</li>
+                </ul>
+                <p>Created directive <code>focusOn</code> (for example in html <code>focus-on=&quot;focusLogInForm&quot;</code>) to automatically set focus if statement evaluates to true</p>
+            </details>
+            <details>
+                <summary>CSS Usage</summary>
+                <ul>
+                    <li>A custom scroll bar (for example you can see it in search suggestion dropdown)</li>
+                    <li>A custom 'shake' animation to gain user's attraction (for example sign out, navigate to detail page of a song, and click <code>sign in</code> in comment area)</li>
+                    <li>Use of <code>border-radius</code>, <code>box-shadow</code> and <code>text-shadow</code> (for example control buttons in player)</li>
+                    <li>etc.</li>
+                </ul>
+            </details>
+            <details>
+                <summary>Mobile user friendly</summary>
+                <p>Let screenshots speak</p>
+                <img src="IMG_0350.PNG" />
+                <hr />
+                <img src="IMG_0351.PNG" />
+                <hr />
+                <img src="IMG_0352.PNG" />
+                <hr />
+                <img src="IMG_0353.PNG" />
+                <hr />
+            </details>
+        </details>
+        <details>
+            <summary>Database</summary>
+            <p>Link:</p>
+            <a target="_blank" href="https://music-borui.rhcloud.com/phpmyadmin/">phpMyAdmin</a>
+            <p>User: adminmwuUVlR</p>
+            <p>Password: yfjg6-HIbGQw</p>            
+            (                                       <br />
+            `uid` int(11) NOT NULL AUTO_INCREMENT,   <br />
+            `username` varchar(15) DEFAULT NULL,     <br />
+            `password` char(60) DEFAULT NULL,        <br />
+            PRIMARY KEY (`uid`),                     <br />
+            UNIQUE KEY `username` (`username`)        <br />
+            )                                       <br />
+            <p>Comment</p>
+            (<br />
+            `uid` int(11) NOT NULL,                                               <br />
+            `id` varchar(30) NOT NULL,                                            <br />
+            `content` mediumtext,                                                 <br />
+            `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,                  <br />
+            `commentid` int(11) NOT NULL AUTO_INCREMENT,                          <br />
+            `type` varchar(10) DEFAULT 'song',                                    <br />
+            `name` varchar(100) DEFAULT NULL,                                     <br />
+            PRIMARY KEY (`commentid`),                                            <br />
+            KEY `uid` (`uid`),                                                     <br />
+            CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`)<br />
+            )                                                                    <br />
+            <p>Follow</p>
+            (                                                                     <br />
+            `uid1` int(11) NOT NULL,                                               <br />
+            `uid2` int(11) NOT NULL,                                               <br />
+            KEY `uid1` (`uid1`),                                                    <br />
+            KEY `uid2` (`uid2`),                                                    <br />
+            CONSTRAINT `follow_ibfk_1` FOREIGN KEY (`uid1`) REFERENCES `user` (`uid`),<br />
+            CONSTRAINT `follow_ibfk_2` FOREIGN KEY (`uid2`) REFERENCES `user` (`uid`) <br />
+            )                                                                     <br />
+            <p>Mylist</p>
+            (                                                                     <br />
+            `uid` int(11) NOT NULL,                                                <br />
+            `list` mediumtext,                                                     <br />
+            KEY `uid` (`uid`),                                                      <br />
+            CONSTRAINT `mylist_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`)  <br />
+            )                                                                     <br />
+        </details>
+        <details>
+            <summary>Technologies Used</summary>
+            <ul>
+                <li>HTML                                                                     </li>
+                <li>CSS                                                                      </li>
+                <li>Bootstrap                                                                </li>
+                <li>Javascript, jQuery                                                       </li>
+                <li>AngularJS (ui-router)                                                     </li>
+                <li>NodeJS (ExpressJS, body-parser, multer, node-mysql, passport, bcrypt-nodejs)</li>
+                <li>MySQL                                                                    </li>
+            </ul>            
+        </details>
+        <details>
+            <summary>References</summary>
+            <ul>
+                <li><a href="https://developer.spotify.com/">Spotify Web API</a></li>
+                <li><a href="https://github.com/possan/webapi-player-example">Spotify Web API Player Example</a></li>
+                <li><a href="https://github.com/felixge/node-mysql/">node-mysql</a></li>
+                <li><a href="https://www.npmjs.com/package/bcrypt-nodejs">bcrypt-nodejs</a></li>
+            </ul>
+        </details>
+    </div>
+</body>
+</html>
