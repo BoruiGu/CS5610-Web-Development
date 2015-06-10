@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Post-course - Override</title>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/override1.css" />
+    <link rel="stylesheet" href="css/override2.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Post-course - Override</h1>
+        <p>
+            This experiment explores how styles override each other.
+        </p>
+        <h3>#1: Inline style</h3>        
+        <pre>
+            <span id="T1" style="color: black">
+As expected, inline style will override style from a css file.
+            </span>
+<code>
+<kbd>html:</kbd>
+&lt;span id=&quot;T1&quot; style=&quot;color: black&quot;&gt;
+As expected, inline style will override style from a css file.
+&lt;/span&gt;
+
+<kbd>css:</kbd>
+#T1 {
+    color: crimson;
+}
+</code>
+</pre>        
+        <h3>#2: Single CSS</h3>
+        <pre>
+        <span id="T2">
+In a single CSS file, style that comes last "wins".
+            </span>
+<code>
+<kbd>css:</kbd>
+#T2 {
+    color: black;
+}
+#T2 {
+    color: white;
+}
+#T2 {
+    color: crimson;
+}
+</code>
+</pre>      
+        <h3>#3: Multiple CSS Files</h3>
+        <pre>
+        <span id="T3">
+When multiple CSS files are included, style in latter file override style in former file.
+            </span>
+<code>
+<kbd>html:</kbd>
+&lt;link rel=&quot;stylesheet&quot; href=&quot;css/override1.css&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;css/override2.css&quot; /&gt;
+<kbd>css:</kbd>
+<em><strong>override1.css</strong></em>
+#T3 {
+    color: crimson;
+}
+<em><strong>override2.css</strong></em>
+#T3 {
+    color: black;
+}
+</code>
+</pre>      
+        <h3>#4: Specificity</h3>
+        <pre>
+            <span id="T4">
+More specific selectors will override more general ones. (Note: inline styles have high specificity. See the spec below.)
+<br />CSS Specification: <a href="http://www.w3.org/TR/2011/REC-CSS2-20110607/cascade.html#cascade">link</a>
+            </span>
+<code>
+<kbd>html:</kbd>
+&lt;span id=&quot;T4&quot;&gt;
+More specific selectors will override more general ones.
+&lt;/span&gt;
+<kbd>css:</kbd>
+<em><strong>override1.css</strong></em>
+pre #T4 {
+    color: crimson;
+}
+#T4 {
+    color: white;
+}
+<em><strong>override2.css</strong></em>
+#T4 {
+    color: black;
+}
+</code>
+</pre>      
+        <h3>#5: !Important</h3>
+        <pre>
+        <span id="T5" style="color: crimson">
+!important at the end of a style will override any other styles, including inline styles.
+            </span>
+<code>
+<kbd>html:</kbd>
+&lt;span id=&quot;T5&quot; style=&quot;color: crimson&quot;&gt;
+!important at the end of a style will override any other styles, including inline styles.
+&lt;/span&gt;
+<kbd>css:</kbd>
+<em><strong>override1.css</strong></em>
+#T5 {
+    color: black !important;
+}
+#T5 {
+    color: white;
+}
+<em><strong>override2.css</strong></em>
+#T5 {
+    color: green;
+}
+</code>
+</pre>  
+        <h2>Source Files </h2>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/css/07-override.html">html</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/css/css/override1.css">css</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/css/css/override2.css">css</a>
+        <h2>Reference</h2>
+        <a target="_blank" href="http://stackoverflow.com/questions/9459062/in-which-order-do-css-stylesheets-override">StackOverflow</a><br />
+        <a target="_blank" href="http://stackoverflow.com/questions/9459062/in-which-order-do-css-stylesheets-override">Cascading Style Sheets Level 2 Revision 1 (CSS 2.1) Specification</a><br />
+</div>
+</body>
+</html>

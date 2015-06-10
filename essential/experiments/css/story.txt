@@ -4,4 +4,6 @@
 03-transition.html     Transition         
 04-border-radius.html  Border-radius
 05-box-shadow.html     Box-shadow
+06-z-index.html        Z-index
+07-override.html       Override
 story.txt              The story file for this story

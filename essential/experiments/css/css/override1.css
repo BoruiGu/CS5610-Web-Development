@@ -1,0 +1,35 @@
+﻿#T1 {
+    color: crimson;
+}
+
+#T2 {
+    color: black;
+}
+
+#T2 {
+    color: white;
+}
+
+#T2 {
+    color: crimson;
+}
+
+#T3 {
+    color: crimson;
+}
+
+pre #T4 {
+    color: crimson;
+}
+
+#T4 {
+    color: white;
+}
+
+#T5 {
+    color: black !important;
+}
+
+#T5 {
+    color: white;
+}

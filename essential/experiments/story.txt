@@ -8,3 +8,4 @@
 ../story/index.htm?../experiments/story_files/week8.txt Week - 8 Experiments
 ../story/index.htm?../experiments/story_files/week9.txt Week - 9 Experiments
 ../story/index.htm?../experiments/story_files/week10.txt Week - 10 Experiments
+../story/index.htm?../experiments/story_files/post.txt Post-course Experiments
