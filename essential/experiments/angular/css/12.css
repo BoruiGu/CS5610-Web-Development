@@ -9,3 +9,44 @@
     white-space: pre-line;
     overflow-y: scroll;
 }
+
+.container {
+    position: relative;
+    left: 0px;
+    transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+.container.pull-right {    
+    left: 17.7778%;
+}
+
+@keyframes pageslider-fade-in {
+    0% {
+        width: 0px;
+        opacity: 0;
+        color: #333333;
+    }
+
+    50% {
+        width: 17.7778%;
+        opacity: 1;
+        color: #333333;
+    }
+
+    100% {
+        color: #f0f8ff;
+    }
+}
+
+#pageslide.ng-hide-add {
+    transition: all linear 0.5s;    
+}
+
+#pageslide.ng-hide-remove {
+    animation: pageslider-fade-in 1.0s ease-in-out;
+}
+
+#pageslide.ng-hide {
+    width: 0px !important;
+    opacity: 0 !important;
+}

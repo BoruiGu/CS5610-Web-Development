@@ -1,4 +1,4 @@
-﻿var app = angular.module('tableApp', ['ngTouch']);
+﻿var app = angular.module('tableApp', ['ngTouch', 'ngAnimate']);
 
 app.controller('tableController', function ($scope) {
     var result = [
@@ -65,6 +65,7 @@ app.controller('tableController', function ($scope) {
         result.forEach(function (obj, idx) {
             if (obj.name == stripped) {
                 ret = idx;
+                // break forEach
                 return;
             }
         });
