@@ -6,12 +6,12 @@ app.controller('tableController', function ($scope) {
         { rank: 2, name: 'Tenshi', total: '77', weight: 0.5 },
         { rank: 3, name: 'Kaguya', total: '0', weight: 0.3 },
         { rank: 4, name: 'Sakuya', total: '0', weight: 0.25 },
-        { rank: 5, name: 'Kedama A ', total: '0', weight: 0.25 },
-        { rank: 6, name: 'Kedama B ', total: '0', weight: 0.25 },
-        { rank: 7, name: 'Kedama C ', total: '0', weight: 0.25 },
-        { rank: 8, name: 'Kedama D ', total: '0', weight: 0.25 },
-        { rank: 9, name: 'Kedama E ', total: '0', weight: 0.25 },
-        { rank: 10, name: 'Kedama F ', total: '0', weight: 0.25 },
+        { rank: 5, name: 'Kedama A', total: '0', weight: 0.25 },
+        { rank: 6, name: 'Kedama B', total: '0', weight: 0.25 },
+        { rank: 7, name: 'Kedama C', total: '0', weight: 0.25 },
+        { rank: 8, name: 'Kedama D', total: '0', weight: 0.25 },
+        { rank: 9, name: 'Kedama E', total: '0', weight: 0.25 },
+        { rank: 10, name: 'Kedama F', total: '0', weight: 0.25 },
         { rank: 11, name: 'Kedama 10', total: '0', weight: 0.25 },
         { rank: 12, name: 'Kedama 11', total: '0', weight: 0.25 },
         { rank: 13, name: 'Kedama 12', total: '0', weight: 0.25 },
@@ -43,28 +43,57 @@ app.controller('tableController', function ($scope) {
 
     var _pageslide = {
         show: false,
-        content: null
+        content: null,
+        curr_content_idx: null
     };
 
     $scope.pageslide = _pageslide;
 
     $scope.result = result;
 
-    $scope.pageslide_show = function (name, e) {
-        _pageslide.show = true;
-        _pageslide.content = name + "\n\n\n" + dummy_text;
+    function pageslide_close() {
+        _pageslide.show = false;
+        _pageslide.content = null;
+        _pageslide.curr_content_idx = null;
+    }
+
+    function entry_index(entry) {
+        raw = $(entry).text();
+        // remove leading and trailing white spaces
+        stripped = $.trim(raw);
+        ret = -1
+        result.forEach(function (obj, idx) {
+            if (obj.name == stripped) {
+                ret = idx;
+                return;
+            }
+        });
+        return ret;
+    }
+
+    function second_click_same_entry(e) {
+        return _pageslide.show && (_pageslide.curr_content_idx == entry_index(e.target));
+    }
+
+    $scope.pageslide_show = function (name, idx, e) {
+        if (second_click_same_entry(e)) {
+            pageslide_close()
+        } else {
+            _pageslide.show = true;
+            _pageslide.content = name + "\n\n\n" + dummy_text;
+            _pageslide.curr_content_idx = idx;
+        };
         e.stopPropagation();
     };
 
     $scope.body_click = function (e) {
         var pageslide_Obj = $("#pageslide");
         // ref: http://stackoverflow.com/questions/1403615/use-jquery-to-hide-a-div-when-the-user-clicks-outside-of-it
-        if (_pageslide.show == true
+        if (_pageslide.show
             && !pageslide_Obj.is(e.target) // if the target of the click isn't the container...
             && pageslide_Obj.has(e.target).length === 0) // ... nor a descendant of the container
         {
-            _pageslide.show = false;
-            _pageslide.content = null;
+            pageslide_close()
         }
     };
 });

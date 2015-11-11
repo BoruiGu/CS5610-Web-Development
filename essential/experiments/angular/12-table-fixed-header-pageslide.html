@@ -30,7 +30,7 @@
             <tbody>
                 <tr ng-repeat="e in result">
                     <td>{{e.rank}}</td>
-                    <td ng-click="pageslide_show(e.name, $event)">
+                    <td ng-click="pageslide_show(e.name, $index, $event)">
                         <a href="">{{e.name}}</a>
                     </td>
                     <td>{{e.total}}</td>
