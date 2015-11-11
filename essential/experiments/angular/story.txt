@@ -1,12 +1,13 @@
-01-hello.html                  Hello
-02-array-object.html           Array Object
-03-list-management.html        List Management
-04-list-management-sort.html   List Management - Sort
-05-list-management-select.html List Management - Select
-06-routing-hello.html          Routing - Hello
-07-login.html                  Login
-08-login-redirect.html         Login - Redirect
-09-login-seperate-files.html   Login - Seperate Files
-10-hover.html                  Hover
-11-hover-style.html            Hover - Style
-story.txt                      The story file for this story
+01-hello.html                        Hello
+02-array-object.html                 Array Object
+03-list-management.html              List Management
+04-list-management-sort.html         List Management - Sort
+05-list-management-select.html       List Management - Select
+06-routing-hello.html                Routing - Hello
+07-login.html                        Login
+08-login-redirect.html               Login - Redirect
+09-login-seperate-files.html         Login - Seperate Files
+10-hover.html                        Hover
+11-hover-style.html                  Hover - Style
+12-table-fixed-header-pageslide.html Table - Fixed Header & PageSlide
+story.txt                            The story file for this story

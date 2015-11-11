@@ -1,11 +1,8 @@
-../story/index.htm?../experiments/story_files/week1.txt Week - 1 Experiments
-../story/index.htm?../experiments/story_files/week2.txt Week - 2 Experiments
-../story/index.htm?../experiments/story_files/week3.txt Week - 3 Experiments
-../story/index.htm?../experiments/story_files/week4.txt Week - 4 Experiments
-../story/index.htm?../experiments/story_files/week5.txt Week - 5 Experiments
-../story/index.htm?../experiments/story_files/week6.txt Week - 6 Experiments
-../story/index.htm?../experiments/story_files/week7.txt Week - 7 Experiments
-../story/index.htm?../experiments/story_files/week8.txt Week - 8 Experiments
-../story/index.htm?../experiments/story_files/week9.txt Week - 9 Experiments
-../story/index.htm?../experiments/story_files/week10.txt Week - 10 Experiments
-../story/index.htm?../experiments/story_files/post.txt Post-course Experiments
+../story/index.htm?../experiments/css/story.txt                     css
+../story/index.htm?../experiments/html/story.txt                    html
+../story/index.htm?../experiments/bootstrap/story.txt               bootstrap
+../story/index.htm?../experiments/jQuery/story.txt                  jQuery
+../story/index.htm?../experiments/ajax/story.txt                    ajax
+../story/index.htm?../experiments/angular/story.txt                 angular
+../story/index.htm?../experiments/Node.js/story.txt                 Node.js
+../story/index.htm?../experiments/Project-Experiments/story.txt     Project-Experiments

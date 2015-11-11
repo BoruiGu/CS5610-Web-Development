@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Post - Table Fixed Header &amp; PageSlide</title>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-touch.js"></script>
+    <script src="js/12.js"></script>
+    <link rel="stylesheet" href="css/12.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body ng-app="tableApp" ng-controller="tableController" ng-click="body_click($event)">
+    <div class="container">
+        <h1>Post - Table Fixed Header &amp; PageSlide</h1>
+        <p class="lead">
+            A demo result page.
+        </p>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="col-sm-2">#</th>
+                    <th class="col-sm-4">Name</th>
+                    <th class="col-sm-2">Total</th>
+                    <th class="col-sm-2">Weight</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="e in result">
+                    <td>{{e.rank}}</td>
+                    <td ng-click="pageslide_show(e.name, $event)">
+                        <a href="">{{e.name}}</a>
+                    </td>
+                    <td>{{e.total}}</td>
+                    <td>{{e.weight}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <pre>
+</pre>
+        <h2>Source Files </h2>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/12-table-fiexed-header-pageslide.html">html</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/js/12.js">js</a>
+        <a target="_blank" href="../../fileview/Default.aspx?~/experiments/angular/css/12.css">css</a>
+        <h2>Reference</h2>
+    </div>
+    <div id="pageslide" ng-show="pageslide.show">
+        {{pageslide.content}}
+    </div>
+</body>
+</html>

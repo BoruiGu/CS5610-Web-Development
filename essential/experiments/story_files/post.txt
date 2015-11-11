@@ -1,2 +1,3 @@
-../css/06-z-index.html        CSS: Z-index
-../css/07-override.html      CSS: Override
+../css/06-z-index.html                          CSS: Z-index
+../css/07-override.html                         CSS: Override
+../angular/12-table-fixed-header-pageslide.html Table - Fixed Header & PageSlide

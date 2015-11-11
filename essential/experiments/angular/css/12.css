@@ -1,0 +1,11 @@
+﻿#pageslide {
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 17.7778%;
+    background-color: #333333;
+    color: #f0f8ff;
+    white-space: pre-line;
+    overflow-y: scroll;
+}
