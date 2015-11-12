@@ -10,8 +10,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-touch.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.js"></script>
     <script src="js/12.js"></script>
-    <link rel="stylesheet" href="css/12.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/prefixed/12.css" />
+    <!-- initial-scale > 1 to enable content to move right and able to scroll horizontally -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.1">
 </head>
 <body ng-app="tableApp" ng-controller="tableController" ng-click="body_click($event)">
     <div class="container" ng-class="{'pull-right': pageslide.show}">
