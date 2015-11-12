@@ -1,9 +1,9 @@
 ﻿var app = angular.module('tableApp', ['ngTouch', 'ngAnimate']);
 
-app.controller('tableController', function ($scope) {
+app.controller('tableController', function ($scope, $timeout) {
     var result = [
         { rank: 1, name: 'Reimu', total: '7777', weight: 1.0 },
-        { rank: 2, name: 'Tenshi', total: '77', weight: 0.5 },
+        { rank: 2, name: 'Tenko', total: '77', weight: 0.5 },
         { rank: 3, name: 'Kaguya', total: '0', weight: 0.3 },
         { rank: 4, name: 'Sakuya', total: '0', weight: 0.25 },
         { rank: 5, name: 'Kedama A', total: '0', weight: 0.25 },
@@ -51,6 +51,12 @@ app.controller('tableController', function ($scope) {
 
     $scope.result = result;
 
+    function pageslide_open(name, idx) {
+        _pageslide.show = true;
+        _pageslide.content = name + "\n\n\n" + dummy_text;
+        _pageslide.curr_content_idx = idx;
+    }
+
     function pageslide_close() {
         _pageslide.show = false;
         _pageslide.content = null;
@@ -76,25 +82,45 @@ app.controller('tableController', function ($scope) {
         return _pageslide.show && (_pageslide.curr_content_idx == entry_index(e.target));
     }
 
-    $scope.pageslide_show = function (name, idx, e) {
-        if (second_click_same_entry(e)) {
-            pageslide_close()
-        } else {
-            _pageslide.show = true;
+    function second_click_diff_entry(e) {
+        return _pageslide.show && (_pageslide.curr_content_idx != entry_index(e.target));
+    }
+
+    /* EFFECT: update content of pageslide according to given name & idx
+       WHERE: pageslide should be open, and is showing a content different
+              than given name & idx when this function is called */
+    function pageslide_load_new(name, idx) {
+        pageslide_Obj = $('#pageslide');
+        // 0.5s for previous content to disappear
+        pageslide_Obj.addClass('text-fade-out');
+        $timeout(function () {
+            // new content appear, 0.5s
             _pageslide.content = name + "\n\n\n" + dummy_text;
             _pageslide.curr_content_idx = idx;
+            pageslide_Obj.removeClass('text-fade-out');
+        }, 500/*ms*/);
+    }
+
+    $scope.pageslide_show = function (name, idx, e) {
+        if (second_click_diff_entry(e)) {
+            pageslide_load_new(name, idx);
+        } else if (second_click_same_entry(e)) {
+            pageslide_close();
+        } else {
+            pageslide_open(name, idx);
         };
+        // don't trigger the ng-click (html_click) on html level
         e.stopPropagation();
     };
 
-    $scope.body_click = function (e) {
+    $scope.html_click = function (e) {
         var pageslide_Obj = $("#pageslide");
         // ref: http://stackoverflow.com/questions/1403615/use-jquery-to-hide-a-div-when-the-user-clicks-outside-of-it
         if (_pageslide.show
             && !pageslide_Obj.is(e.target) // if the target of the click isn't the container...
             && pageslide_Obj.has(e.target).length === 0) // ... nor a descendant of the container
-        {
-            pageslide_close()
-        }
+            {
+                pageslide_close()
+            }
     };
 });

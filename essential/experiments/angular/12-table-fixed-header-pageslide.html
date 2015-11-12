@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="tableApp" ng-controller="tableController" ng-click="html_click($event)">
 <head>
     <title>Post - Table Fixed Header &amp; PageSlide</title>
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -12,9 +12,9 @@
     <script src="js/12.js"></script>
     <link rel="stylesheet" href="css/prefixed/12.css" />
     <!-- initial-scale > 1 to enable content to move right and able to scroll horizontally -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.01">
 </head>
-<body ng-app="tableApp" ng-controller="tableController" ng-click="body_click($event)">
+<body>
     <div class="container" ng-class="{'pull-right': pageslide.show}">
         <h1>Post - Table Fixed Header &amp; PageSlide</h1>
         <p class="lead">

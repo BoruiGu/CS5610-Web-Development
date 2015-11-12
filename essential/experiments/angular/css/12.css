@@ -8,6 +8,7 @@
     color: #f0f8ff;
     white-space: pre-line;
     overflow-y: scroll;
+    transition: all linear 0.5s;
 }
 
 .container {
@@ -51,4 +52,8 @@
 #pageslide.ng-hide {
     width: 0px !important;
     opacity: 0 !important;
+}
+
+#pageslide.text-fade-out {
+    color: #333333;
 }
