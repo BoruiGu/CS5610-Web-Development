@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>6/26/17 - CSS Grid</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/css-grid.css" />
+</head>
+
+<body>
+    <article class="main-content">
+        <header>
+            <h1>6/26/17 - CSS Grid</h1>
+        </header>
+        <section>
+            <h4>A responsive grid that adjust its layout depending on width</h4>
+            <iframe src="./08-iframe.html"></iframe>
+            <div>
+                <h2>Code Snippet</h2>
+                <p>HTML:</p>
+                <pre>
+&lt;div class="grid-container"&gt;
+    &lt;div class="image"&gt;Img&lt;/div&gt;
+    &lt;div class="name"&gt;My Favorites&lt;/div&gt;
+    &lt;div class="bar"&gt;100%&lt;/div&gt;
+    &lt;div class="number"&gt;137&lt;/div&gt;
+    &lt;div class="menu"&gt;...&lt;small&gt;&lt;span class="glyphicon glyphicon-triangle-bottom"&gt;&lt;/span&gt;&lt;/small&gt;&lt;/div&gt;
+&lt;/div&gt;
+                </pre>
+                <p>CSS:</p>
+                <pre>
+.grid-container {
+    font-size: large;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 40px 1.2fr 2fr 1fr 40px;
+    grid-column-gap: 10px;
+    grid-template-areas: "image name bar number menu";
+    align-items: center;
+    border: 0.1em solid;
+    border-radius: 0.2em;    
+}
+
+@media (max-width: 500px) {
+    .grid-container {
+        grid-template-columns: 40px auto auto;
+        grid-template-rows: 20px 20px 20px;
+        grid-column-gap: 10px;
+        grid-row-gap: 2px;
+        grid-template-areas: 
+            "image name name"
+            "image bar menu"
+            "image number ...";
+    }
+}
+
+.image {
+    height: 60px;
+    width: 40px;
+    background-color: lightskyblue;
+    line-height: 56px;
+    grid-area: image;
+}
+
+.bar {
+    background-color: pink;
+    grid-area: bar;
+}
+
+.name {
+    grid-area: name;
+}
+
+.number {
+    grid-area: number;
+}
+
+.menu {
+    grid-area: menu;
+    justify-self: end;
+    margin-right: 10px;
+}
+                </pre>
+            </div>
+        </section>
+        <footer>
+            <h2>Source Files </h2>
+            <a target="_blank" href="../../fileview/Default.aspx?~/experiments/css/08-Css-Grid.html">html</a>
+            <a target="_blank" href="../../fileview/Default.aspx?~/experiments/css/08-iframe.html">iframe</a>
+            <a target="_blank" href="../../fileview/Default.aspx?~/experiments/css/css/css-grid.css">css</a>
+            <div class="reference">
+                <h2>References</h2>
+                <a target="_blank" href="https://css-tricks.com/snippets/css/complete-guide-grid/">A Complete Guide to Grid</a><br />
+                <a target="_blank" href="https://webkit.org/demos/css-grid/">CSS Grid Layout Examples</a><br />
+            </div>
+        </footer>
+    </article>
+</body>
+
+</html>

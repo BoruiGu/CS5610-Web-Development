@@ -1,0 +1,62 @@
+@keyframes resize {
+    to { width: 300px; }
+}
+
+iframe {
+    width: 700px;
+    border: none;
+    animation: resize 8s infinite alternate;
+}
+
+.grid-container {
+    font-size: large;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 40px 1.2fr 2fr 1fr 40px;
+    grid-column-gap: 10px;
+    grid-template-areas: "image name bar number menu";
+    align-items: center;
+    border: 0.1em solid;
+    border-radius: 0.2em;    
+}
+
+@media (max-width: 500px) {
+    .grid-container {
+        grid-template-columns: 40px auto auto;
+        grid-template-rows: 20px 20px 20px;
+        grid-column-gap: 10px;
+        grid-row-gap: 2px;
+        grid-template-areas: 
+            "image name name"
+            "image bar menu"
+            "image number ...";
+    }
+}
+
+.image {
+    height: 60px;
+    width: 40px;
+    background-color: lightskyblue;
+    line-height: 56px;
+    grid-area: image;
+}
+
+.bar {
+    background-color: pink;
+    grid-area: bar;
+}
+
+.name {
+    grid-area: name;
+}
+
+.number {
+    grid-area: number;
+}
+
+.menu {
+    grid-area: menu;
+    justify-self: end;
+    margin-right: 10px;
+}
